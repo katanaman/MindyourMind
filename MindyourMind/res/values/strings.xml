@@ -4,5 +4,30 @@
     <string name="app_name">MindyourMind</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+    <string name="imageview_for_camera">ImageView for camera</string>
+    <string name="camera_image_capture">Camera Image capture</string>
+    <string name="access_camera">access \ncamera</string>
+    
+    <string name="message">How are you feeling today?</string>
+    <string name="faces">faces</string>
+    <string name="very_unhappy">very unhappy</string>
+    <string name="unhappy">unhappy</string>
+    <string name="neutral">neutral</string>
+    <string name="happy">happy</string>
+    <string name="very_happy">very happy</string>
+    <string name="_add_media">+ add media</string>
+    <string name="image_thumbnail">Image thumbnail</string>
+    <string name="done">Done</string>
+    <string name="how_satisfied_are_you_today_">how satisfied are you today?</string>
+    <string name="shortcut_to_make_an_entry">shortcut to make an entry</string>
+    <string name="title_activity_main_menu">MainMenu</string>
+    <string name="shortcut_to_diary_entry">shortcut to diary entry</string>
+    <string name="title_activity_login_sign_up">LoginSignUp</string>
+    <string name="login">Login</string>
+    <string name="signup">SignUp</string>
+    <string name="how_are_you_feeling_">how are you feeling?</string>
+    <string name="title_activity_sign_up">SignUp</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="dob">DOB</string>
 </resources>
