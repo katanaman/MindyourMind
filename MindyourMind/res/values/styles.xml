@@ -1,20 +1,39 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!--
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    -->
-    <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
-    </style>
+    <!-- Colours to use in the app -->
+    <color name="primary">#1eabf2</color>
+    <color name="primary_dark">#178acf</color>
+    <color name="accent">#ffb936</color>
+    <color name="window_background">#c1dae6</color>
+    
+    <!-- This theme will be overridden in newer SDKs -->
+    <style name="AppTheme" parent="AppTheme.Base"></style>
 
     <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    <style name="AppTheme.Base" parent="Theme.AppCompat.NoActionBar">
+        
+		<item name="colorPrimary">@color/primary</item>
+		<item name="colorPrimaryDark">@color/primary_dark</item>
+		<item name="colorAccent">@color/accent</item>
+		
+		<item name="android:windowBackground">@color/window_background</item>
+		
+    </style>
+    
+    <!-- theme to be overridden in newer SDKs -->
+    <style name="AppTheme.TransparentActionBar" parent="AppTheme.TransparentActionBar.Base"></style>
+    
+    <style name="AppTheme.TransparentActionBar.Base" parent="AppTheme">
+        
+        <!-- <item name="android:windowTranslucentStatus">true</item> -->
+        <item name="android:windowActionBarOverlay">true</item>
+        <!-- <item name="android:windowTranslucentNavigation">true</item> -->
+        <item name="android:actionBarStyle">@style/TransparentActionBar</item>
+    </style>
+    
+    <!--  transparentActionBar style -->
+    <style name="TransparentActionBar" parent = "Theme.AppCompat">
+        <item name="android:background">@android:color/transparent</item>
     </style>
 
 </resources>
