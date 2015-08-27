@@ -9,6 +9,19 @@
     <string name="access_camera">access \ncamera</string>
     
     <string name="pref_usage_data_key">collect_usage_data</string>
+    <string name="pref_intro_played_key">has_intro_played</string>
+    
+    
     <string name="usage_data_description">Allow application to gather anonymous usage data</string>
     <string name="usage_data_title">Usage Data</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Signup</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="gender">Gender</string>
+    <string name="university">University</string>
+    <string name="degreepathway">DegreePathway</string>
+    <string name="yearofstudy">YearOfStudy</string>
 </resources>

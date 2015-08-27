@@ -16,4 +16,7 @@
 	<!-- the little extra height needed to go under the status bar -->
 	<dimen name="status_bar_height">25dp</dimen>
 	
+	<!-- button spacing in the login and signup page -->
+	<dimen name="login_signup_spacing">25dp</dimen>
+	
 </resources>
