@@ -4,24 +4,79 @@
     <string name="app_name">MindyourMind</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="imageview_for_camera">ImageView for camera</string>
-    <string name="camera_image_capture">Camera Image capture</string>
     <string name="access_camera">access \ncamera</string>
     
     <string name="pref_usage_data_key">collect_usage_data</string>
     <string name="pref_intro_played_key">has_intro_played</string>
+    <string name="pref_task_title_key">default_task_title</string>
+    <string name="pref_default_time_from_now_key">time_from_now_default</string>
     
+    <string name="task_saved_message">Saved</string>
+    <string name="default_title">Default Title</string>
+    <string name="tasks">Tasks</string>
+    <string name="default_title_description">The default title for a task</string>
+    <string name="minutes_from_now">Minutes From Now</string>
+    <string name="minutes_from_now_description">The number of minutes into the future to set the reminder</string>
     
     <string name="usage_data_description">Allow application to gather anonymous usage data</string>
-    <string name="usage_data_title">Usage Data</string>
+    <string name="usage_data_title">Usage data</string>
     <string name="login">Login</string>
     <string name="sign_up">Signup</string>
     <string name="name">Name</string>
     <string name="password">Password</string>
-    <string name="confirm_password">Confirm Password</string>
-    <string name="date_of_birth">Date of Birth</string>
+    <string name="passcode">Passcode</string>
+    <string name="confirm">Save</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="confirm_passcode">Confirm passcode</string>
+    <string name="date_of_birth">Date of birth</string>
     <string name="gender">Gender</string>
     <string name="university">University</string>
-    <string name="degreepathway">DegreePathway</string>
-    <string name="yearofstudy">YearOfStudy</string>
+    <string name="degreepathway">Degree pathway</string>
+    <string name="yearofstudy">Year of study</string>
+    <string name="university_email_address">University email address</string>
+    <string name="authenticate">Authenticate</string>
+    <string name="done">Done</string>
+    <string name="motivational_images">motivational images</string>
+    <string name="add_text_here">add text here</string>
+    <string name="preview_of_meditation">preview of meditation</string>
+    
+    
+    <!-- guidance center strings -->
+    <string name="guidance_center_get_chilled">
+        Relax, watch TV, read a magazine or book, listen to some music, play a video game; whatever helps you switch off. Get a good night’s sleep and make sure you eat healthily too.\n
+		Using alcohol or drugs to help you chill out won’t make things better. They can bring their own problems.
+	</string>
+	<string name="guidance_center_get_involved">
+  	 	Join a club, meet up with friends, do a course, learn something new. Don’t spend long periods alone. Going out and mixing with other people will help you stop focusing on 
+		your worries and fears. After a while they’ll not seem so overwhelming.  
+    </string>
+    <string name="guidance_center_get_wise">
+  	 	Learn to recognise the signs of poor mental health in yourself and in your friends and family.\n
+		These signs include: changes in sleeping or eating patterns being angry for no reason feeling anxious, worried or overwhelmed by problems finding it hard to concentrate and make decisions.     
+    </string>
+	<string name="guidance_center_get_help">
+	    If you feel you can’t work it out by yourself, ask for help. You can go to the doctor, or contact one of the many organisations that can help.\n
+		Anyone can experience poor mental health. It’s nothing to be afraid of or embarrassed about.
+	</string>
+	<string name="guidance_center_get_talking">
+	    Talk about how you’re feeling. It’s not easy for young men to open up, especially to other young men. But if there is somebody you trust – a friend, family member or partner – go talk to them. It really will help.
+	</string>
+	<string name="guidance_center_get_active">
+	    Regular physical activity can help you feel more positive. Find something you enjoy, whether it’s football, cycling, the gym or even just going for a walk. It might be hard to make the effort, but if you do you’ll feel better.
+	</string>
+	<string name="guidance_center_accept_yourself">
+	    Remember, we’re all different and nobody’s perfect. Accepting who you are is an important part of good mental health.
+	</string>
+	<string name="guidance_center_eat_healthily">
+	    A healthy, balanced diet will help you feel better and give you more energy.
+	</string>
+	<string name="mind_your_mind_icon">Mind your mind icon</string>
+	<string name="diary_title_message">What did you get up to today?</string>
+	<string name="diary_entry_title_message">What did you do today?</string>
+	<string name="diary_entry_message">Tell me a little about your day...</string>
+	<string name="diary_entry_saved">Entry saved</string>
+	<string name="delete_q">Delete?</string>
+	<string name="delete">delete</string>
+	<string name="menu_add">Add diary entry</string>
+    
 </resources>

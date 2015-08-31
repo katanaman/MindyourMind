@@ -5,6 +5,7 @@
     <color name="primary_dark">#178acf</color>
     <color name="accent">#ffb936</color>
     <color name="window_background">#c1dae6</color>
+    <color name="border_color">#000080</color>
     
     <!-- This theme will be overridden in newer SDKs -->
     <style name="AppTheme" parent="AppTheme.Base"></style>
