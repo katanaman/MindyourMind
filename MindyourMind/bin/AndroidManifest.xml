@@ -74,6 +74,15 @@
                 android:value="com.example.tasks.TaskListActivity" />
         </activity>
         
+        <activity
+            android:name=".activities.CalendarViewActivity"
+            android:label="" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
         <activity android:name="uk.ac.qub.mindyourmind.activities.PreferencesActivity"/>
     </application>
 
