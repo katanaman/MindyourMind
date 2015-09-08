@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--  this will be our default menu which we'll load into the action bar of our main app -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto" >
+    
+    <!-- insert  button used to create a new task -->
+	
+	<item 
+	    android:id="@+id/menu_add"
+	    android:icon="@android:drawable/ic_menu_add"
+	    android:showAsAction="always"
+	    app:showAsAction="always"
+	    android:title="@string/menu_add"/>
+	
+	<item 
+	    android:id="@+id/menu_settings"
+	    android:showAsAction="never"
+	    app:showAsAction="never"
+	    android:title="@string/action_settings"/>
+	
+</menu>

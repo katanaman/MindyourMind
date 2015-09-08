@@ -5,6 +5,7 @@
     android:versionName="1.0" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -82,8 +83,23 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
+        <activity
+            android:name=".activities.GraphViewActivity"
+            android:label="" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name="uk.ac.qub.mindyourmind.activities.PreferencesActivity"/>
+        
+        <receiver 
+          android:name="uk.ac.qub.mindyourmind.listeners.InternetConnectionChangedListner"
+          android:label="NetworkConnection">
+		  <intent-filter>
+		    <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+		  </intent-filter>
+		</receiver>
     </application>
 
 </manifest>

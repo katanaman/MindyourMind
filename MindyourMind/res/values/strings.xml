@@ -78,5 +78,7 @@
 	<string name="delete_q">Delete?</string>
 	<string name="delete">delete</string>
 	<string name="menu_add">Add diary entry</string>
+	<string name="not_me_q">not me?</string>
+	<string name="email_place_holder">current user</string>
     
 </resources>

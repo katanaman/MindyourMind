@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+	        
+	    <TextView 
+	        android:id="@+id/centerDiv"
+			android:layout_centerInParent = "true"
+	        android:layout_height="wrap_content"
+	        android:layout_width="wrap_content"/>
+	    
+	    <ImageView
+	        android:contentDescription="@string/mind_your_mind_icon"
+	        android:layout_width="250dp"
+	        android:layout_height="250dp"
+			android:layout_alignParentTop="true"
+			android:paddingTop="@dimen/login_signup_spacing"
+			android:layout_centerHorizontal="true"
+	        android:src="@drawable/mym_logo"/>
+	    
+	    <Button
+	        android:id="@+id/button_login"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/centerDiv"
+	        android:layout_marginTop="@dimen/login_signup_spacing"
+	        android:layout_centerHorizontal="true"
+	        android:text="@string/login"/>
+	    
+	    <Button 
+	        android:id="@+id/button_sign_up"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/button_login"
+	        android:layout_marginTop="@dimen/login_signup_spacing"
+	        android:layout_centerHorizontal="true"
+	        android:text="@string/sign_up"/>
+    
+
+</RelativeLayout>
