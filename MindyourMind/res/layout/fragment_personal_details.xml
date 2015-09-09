@@ -2,106 +2,107 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical">
-    
-	    <ScrollView
-	        android:layout_width="match_parent"
-	    	android:layout_height="wrap_content">	
-	         
-		    <LinearLayout
-		        android:id="@+id/SignUpLayout"
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:gravity="center"
-		        android:orientation="vertical" >
-		        
-		         <Space 
-	        		android:layout_height="30dp"
-	        		android:layout_width="match_parent"/>
-		
-			     <EditText
-			       android:id="@+id/editTextName"
-			       android:hint="@string/name"
-			       android:layout_width="wrap_content"
-			       android:layout_height="wrap_content"
-			       android:cursorVisible="true"
-			       android:layout_margin="@dimen/gutter"
-			       android:gravity="start"
-			       android:ems="10"
-			       android:inputType="text">
-			       <requestFocus />
-			       </EditText>
-		
-		          <EditText
-		              android:id="@+id/editTextPassword"
-		              android:hint="@string/password"
-		              android:layout_width="wrap_content"
-		              android:layout_height="wrap_content"
-		              android:layout_margin="@dimen/gutter"
-		              android:ems="10"
-		              android:gravity="start"
-		              android:inputType="textPassword" >
-		            </EditText>
-		            
-		          <EditText
-		              android:id="@+id/editTextConfirmPassword"
-		              android:hint="@string/confirm_password"
-		              android:layout_width="wrap_content"
-		              android:layout_height="wrap_content"
-					  android:layout_margin="@dimen/gutter"
-		              android:ems="10"
-		              android:gravity="start"
-		              android:inputType="textPassword" >
-		            </EditText>
-		            
-		            <EditText
-		              android:id="@+id/editTextPasscode"
-		              android:hint="@string/passcode"
-		              android:layout_width="wrap_content"
-		              android:layout_height="wrap_content"
-					  android:layout_margin="@dimen/gutter"
-		              android:ems="10"
-		              android:gravity="start"
-		              android:inputType="numberPassword"
-		              android:maxLength="4">
-		            </EditText>
-		            
-		              <EditText
-		              android:id="@+id/editTextConfirmPasscode"
-		              android:hint="@string/confirm_passcode"
-		              android:layout_width="wrap_content"
-		              android:layout_height="wrap_content"
-					  android:layout_margin="@dimen/gutter"
-		              android:ems="10"
-		              android:gravity="start"
-		              android:inputType="numberPassword" 
-		              android:maxLength="4">
-		            </EditText>
-		          
-		          
-		          <EditText
-		                android:id="@+id/editTextDOB"
-		                android:hint="@string/date_of_birth"
-		                android:layout_width="wrap_content"
-		                android:layout_height="wrap_content"
-		                android:layout_margin="@dimen/gutter"
-		                android:gravity="start"
-		                android:ems="10"
-		                android:inputType="none"
-		                android:focusable="false" >
-		            </EditText>
-		
-		            <EditText
-		                android:id="@+id/editTextGender"
-		                android:hint="@string/gender"
-		                android:layout_width="wrap_content"
-		                android:layout_height="wrap_content"
-		                android:layout_margin="@dimen/gutter"
-		                android:ems="10"
-		                android:gravity="start"
-		                android:inputType="none"
-		                android:focusable="false" >
-		            </EditText>
-		         </LinearLayout>
-		</ScrollView>
+    android:gravity="center_vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/SignUpLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <EditText
+                android:id="@+id/editTextName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/gutter"
+                android:cursorVisible="true"
+                android:ems="10"
+                android:gravity="start"
+                android:hint="@string/name"
+                android:inputType="text" >
+
+                <requestFocus />
+            </EditText>
+
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/gutter"
+                android:ems="10"
+                android:gravity="start"
+                android:hint="@string/password"
+                android:inputType="textPassword" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/editTextConfirmPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/gutter"
+                android:ems="10"
+                android:gravity="start"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/editTextPasscode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/gutter"
+                android:ems="10"
+                android:gravity="start"
+                android:hint="@string/passcode"
+                android:inputType="numberPassword"
+                android:maxLength="4" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/editTextConfirmPasscode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/gutter"
+                android:ems="10"
+                android:gravity="start"
+                android:hint="@string/confirm_passcode"
+                android:inputType="numberPassword"
+                android:maxLength="4" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/editTextDOB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/gutter"
+                android:ems="10"
+                android:focusable="false"
+                android:gravity="start"
+                android:hint="@string/date_of_birth"
+                android:inputType="none" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/editTextGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/gutter"
+                android:ems="10"
+                android:focusable="false"
+                android:gravity="start"
+                android:hint="@string/gender"
+                android:inputType="none" >
+            </EditText>
+        </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>

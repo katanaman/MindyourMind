@@ -26,11 +26,12 @@ public class SignUpActivity extends ActionBarActivity implements OnAuthenticated
 		}
 	}
 
+	
 	@Override
-	public void success() {
+	public void success(long userId, String university, String degreePathway, String universityEmail, int yearOfStudy) {
 		// go add add details fragment
-		Fragment fragment = PersonalDetailsFragment.newInstance();
-		getFragmentManager().beginTransaction().replace(R.id.container, fragment, PersonalDetailsFragment.DEFAULT_FRAGMNET_TAG).commit();
+		Fragment fragment = PersonalDetailsFragment.newInstance(userId, university, degreePathway, universityEmail, yearOfStudy);
+		getFragmentManager().beginTransaction().replace(R.id.container, fragment, PersonalDetailsFragment.DEFAULT_FRAGMNET_TAG).commit();	
 	}
 	
 	@Override
@@ -38,4 +39,6 @@ public class SignUpActivity extends ActionBarActivity implements OnAuthenticated
 		// open the main menu
 		startActivity(new Intent(this, MainMenuActivityTemp.class));
 	}
+
+	
 }

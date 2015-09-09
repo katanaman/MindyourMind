@@ -21,6 +21,10 @@
             android:name=".providers.TaskProvider"
             android:authorities="uk.ac.qub.mindyourmind.providers.TaskProvider"
             android:exported="false"/>
+        <provider 
+            android:name=".providers.MindYourMindProvider"
+            android:authorities="uk.ac.qub.mindyourmind.providers.MindYourMindProvider"
+            android:exported="false"/>
         
         <activity
             android:name=".activities.LoginSignUpActivity"
@@ -92,7 +96,14 @@
             </intent-filter>
         </activity>
         <activity android:name="uk.ac.qub.mindyourmind.activities.PreferencesActivity"/>
-        
+        <activity
+            android:name=".activities.MeditationZoneActivity"
+            android:label="Meditation Zone" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <receiver 
           android:name="uk.ac.qub.mindyourmind.listeners.InternetConnectionChangedListner"
           android:label="NetworkConnection">

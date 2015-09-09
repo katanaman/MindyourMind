@@ -33,7 +33,6 @@ public class LoginSignUpActivity extends ActionBarActivity implements OnLoginCli
 		//get shared preferences manager
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 	
-		
 		Fragment fragment;
 		
 		//get last logged in userID from shared preferences
@@ -65,9 +64,6 @@ public class LoginSignUpActivity extends ActionBarActivity implements OnLoginCli
 	public void goToLogin() {
 		getFragmentManager().beginTransaction().replace(R.id.container, LoginSignUpFragment.newInstance()).commit();
 	}
-	
-	
-	
-	
+
 	
 }

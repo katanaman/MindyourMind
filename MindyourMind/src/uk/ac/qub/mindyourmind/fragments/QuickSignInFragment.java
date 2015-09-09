@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import uk.ac.qub.mindyourmind.R;
 import uk.ac.qub.mindyourmind.activities.LoginSignUpActivity;
+import uk.ac.qub.mindyourmind.activities.TaskEditActivity;
 import uk.ac.qub.mindyourmind.database.UserTable;
 import uk.ac.qub.mindyourmind.interfaces.OnEditFinished;
 import uk.ac.qub.mindyourmind.interfaces.OnLoginClicked;
@@ -37,10 +39,15 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 	Button login;
 	EditText passcode;
 	String userCode;
-	
+	String email;
 	long userId;
 	int correctPasscode;
 	
+	/**
+	 * get instance method with bundle args containing the last logged in userId
+	 * @param userId
+	 * @return
+	 */
 	public static QuickSignInFragment newInstance(long userId) {
 		QuickSignInFragment fragment = new QuickSignInFragment();
 		Bundle args = new Bundle();
@@ -49,19 +56,29 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 		return fragment;
 	}
 	
+	/**
+	 * onCreate method setting the userId from the arguments passed in
+	 * initialising the loader to get the email address of the userId passed in 
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		userId = savedInstanceState.getLong(LoginSignUpActivity.EXTRA_USERID);
+		Bundle arguments = getArguments();
+		if(arguments !=null){
+			userId = arguments.getLong(LoginSignUpActivity.EXTRA_USERID, 0L);
+			Log.d(DEFAULT_FRAGMNET_TAG, "userId returned = " + userId);
+		}
 		getLoaderManager().initLoader(0, null, this);
 	}
 	
+	/**
+	 * method inflating the view and instantiating the view components  
+	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 		view =  inflater.inflate(R.layout.fragment_quick_sign_in, container, false);
-		
 		userEmail = (TextView) view.findViewById(R.id.email);
 		notMe = (TextView) view.findViewById(R.id.TV_notMe);
 		
@@ -90,6 +107,8 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 			}
 		});
 		
+		userEmail.setText(email);
+		
 		return view;
 	}
 	
@@ -99,7 +118,6 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 		} else {
 			return false;
 		}
-		
 	}
 
 	@Override
@@ -121,6 +139,9 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 		}
 		
 		correctPasscode = (data.getInt(data.getColumnIndexOrThrow(UserTable.COLUMN_USER_CODE)));
+		email = (data.getString(data.getColumnIndexOrThrow(UserTable.COLUMN_USER_EMAIL)));
+		Log.d(DEFAULT_FRAGMNET_TAG, "returned passcode = " + correctPasscode);
+		Log.d(DEFAULT_FRAGMNET_TAG, "returned email = " + email);
 	}
 
 	@Override

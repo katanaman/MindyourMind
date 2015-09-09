@@ -3,11 +3,12 @@
 <RelativeLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/login_signup_spacing">
 	        
 	    <TextView 
 	        android:id="@+id/centerDiv"
-			android:layout_centerInParent = "true"
+			android:layout_centerInParent="true"
 	        android:layout_height="wrap_content"
 	        android:layout_width="wrap_content"/>
 	    
@@ -20,23 +21,53 @@
 			android:layout_centerHorizontal="true"
 	        android:src="@drawable/mym_logo"/>
 	    
+	    <EditText
+	       android:id="@+id/editTextName"
+	       android:hint="@string/university_email"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:cursorVisible="true"
+	       android:layout_margin="@dimen/gutter"
+	       android:layout_below="@id/centerDiv"
+	       android:layout_centerHorizontal="true"
+	       android:ems="10"
+	       android:inputType="text">
+	       <requestFocus />
+		</EditText>
+		
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:hint="@string/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/gutter"
+            android:layout_below="@id/editTextName"
+            android:ems="10"
+            android:layout_centerHorizontal="true"
+            android:inputType="textPassword" >
+          </EditText>
+		            
 	    <Button
 	        android:id="@+id/button_login"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_below="@id/centerDiv"
+	        android:layout_below="@id/editTextPassword"
 	        android:layout_marginTop="@dimen/login_signup_spacing"
 	        android:layout_centerHorizontal="true"
 	        android:text="@string/login"/>
 	    
-	    <Button 
-	        android:id="@+id/button_sign_up"
+	    <TextView 
+	        android:id="@+id/text_view_sign_up"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_below="@id/button_login"
-	        android:layout_marginTop="@dimen/login_signup_spacing"
+	        android:layout_alignParentRight="true"
+	        android:layout_alignParentEnd="true"
+	        android:layout_alignParentBottom="true"
+	        android:layout_marginRight="@dimen/login_signup_spacing"
+	        android:layout_marginEnd="@dimen/login_signup_spacing"
 	        android:layout_centerHorizontal="true"
-	        android:text="@string/sign_up"/>
+	        android:text="@string/sign_up"
+	        android:textAppearance="?android:attr/textAppearanceMedium"/>
     
 
 </RelativeLayout>

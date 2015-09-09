@@ -10,6 +10,7 @@ public class UserModel {
 	private String gender;
 	private String code;
 	private String userPassword;
+	private boolean isAdmin;
 	
 	public UserModel(){
 	}
@@ -81,5 +82,11 @@ public class UserModel {
 	}
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
+	}	
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+	public void isAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}	
 }

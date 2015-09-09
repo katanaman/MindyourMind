@@ -1,39 +1,50 @@
 package uk.ac.qub.mindyourmind.fragments;
 
+import java.util.ArrayList;
+import java.util.UUID;
+
 import android.app.Fragment;
+import android.content.ContentUris;
+import android.content.ContentValues;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
+import android.view.Window;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 import uk.ac.qub.mindyourmind.R;
-import uk.ac.qub.mindyourmind.adapters.DegreePathwaySpinnerAdapter;
-import uk.ac.qub.mindyourmind.adapters.UniversitiesSpinnerAdapter;
+import uk.ac.qub.mindyourmind.database.UserTable;
+import uk.ac.qub.mindyourmind.database.UserUniversityTable;
 import uk.ac.qub.mindyourmind.interfaces.OnAuthenticated;
+import uk.ac.qub.mindyourmind.providers.MindYourMindProvider;
 
-public class AuthenticateFragment extends Fragment implements OnItemSelectedListener{
+public class AuthenticateFragment extends Fragment {
 	
 	public static final String DEFAULT_FRAGMNET_TAG = "authenticateFragment";
-	
 
+	long userId;
+	
 	private static final int MENU_SAVE = 1;
 			
-	Spinner SUniversity, SDegreePathway;
-	EditText ETYearOfStudy, ETUniversityEmail;
+	EditText ETYearOfStudy, ETUniversityEmail, SUniversity, SDegreePathway;
 	String university, degreePathway, universityEmail;
 	int yearOfStudy;
+	SpinnerDialogFragment sdf;
+	
+	ArrayList<String> supportedUniversities;
+	ArrayList<String> supportedPathways;
 	
 	static final String UNIVERSITY_NAME = "university_name";
 	static final String DEGREE_PATHWAY = "degree_pathway";
 	static final String UNIVERSITY_EMAIL = "university_email";
 	static final String YEAR_OF_STUDY = "year_of_study";
+	
 	
 	public static AuthenticateFragment newInstance() {
 		return new AuthenticateFragment();
@@ -42,14 +53,18 @@ public class AuthenticateFragment extends Fragment implements OnItemSelectedList
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		supportedUniversities = new ArrayList<String>();
+		supportedPathways = new ArrayList<String>();
+		populateFacultyList();
+		populateUniversityList();
 	}
 	
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		
-		outState.putInt(UNIVERSITY_NAME, SUniversity.getSelectedItemPosition());
-		outState.putInt(DEGREE_PATHWAY, SDegreePathway.getSelectedItemPosition());
+		outState.putString(UNIVERSITY_NAME, SUniversity.getText().toString());
+		outState.putString(DEGREE_PATHWAY, SDegreePathway.getText().toString());
 		outState.putString(UNIVERSITY_EMAIL, ETUniversityEmail.getText().toString());
 		outState.putString(YEAR_OF_STUDY, ETYearOfStudy.getText().toString());
 	}
@@ -59,39 +74,63 @@ public class AuthenticateFragment extends Fragment implements OnItemSelectedList
 		
 		View v = inflater.inflate(R.layout.fragment_authenticate_accout, container, false);
 		
-		SUniversity = (Spinner) v.findViewById(R.id.spinnerUniversity);
-		SDegreePathway = (Spinner) v.findViewById(R.id.spinnerDegreePathway);
+		SUniversity = (EditText) v.findViewById(R.id.spinnerUniversity);
+		SDegreePathway = (EditText) v.findViewById(R.id.spinnerDegreePathway);
 		ETYearOfStudy = (EditText) v.findViewById(R.id.editTextYearOfStudy);
 		ETUniversityEmail = (EditText) v.findViewById(R.id.editUniversityEmail);
 		
-		SUniversity.setAdapter(new UniversitiesSpinnerAdapter(getActivity()));
-		SDegreePathway.setAdapter(new DegreePathwaySpinnerAdapter(getActivity()));
 		
 		if(savedInstanceState != null){
-			SUniversity.setSelection(savedInstanceState.getInt(UNIVERSITY_NAME));
-			SUniversity.setSelection(savedInstanceState.getInt(DEGREE_PATHWAY));
+			SUniversity.setText(savedInstanceState.getString(UNIVERSITY_NAME));
+			SUniversity.setText(savedInstanceState.getString(DEGREE_PATHWAY));
 			ETUniversityEmail.setText(savedInstanceState.getString(UNIVERSITY_EMAIL));
 			ETYearOfStudy.setText(savedInstanceState.getString(YEAR_OF_STUDY));
 		}
 		
+		SUniversity.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				sdf = new SpinnerDialogFragment(getActivity(), supportedUniversities, new SpinnerDialogFragment.DialogListener() {
+					
+					@Override
+					public void ready(int n) {
+						SUniversity.setText(supportedUniversities.get(n));
+					}
+					
+					@Override
+					public void cancelled() {
+						sdf.dismiss();
+					}
+				});
+				sdf.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+				sdf.show();
+			}
+		});
+		
+		SDegreePathway.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				sdf = new SpinnerDialogFragment(getActivity(), supportedPathways, new SpinnerDialogFragment.DialogListener() {
+					
+					@Override
+					public void ready(int n) {
+						SDegreePathway.setText(supportedPathways.get(n));
+					}
+					
+					@Override
+					public void cancelled() {
+						sdf.dismiss();
+					}
+				});
+				sdf.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+				sdf.show();
+				
+			}
+		});
+		
 		return v;
-	}
-
-	@Override
-	public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-		switch(view.getId()){
-		case R.id.spinnerUniversity:
-			university = (String) SUniversity.getItemAtPosition(position);
-			break;
-		case R.id.spinnerDegreePathway:
-			degreePathway = (String) SDegreePathway.getItemAtPosition(position);
-			break;
-		}
-	}
-
-	@Override
-	public void onNothingSelected(AdapterView<?> parent) {
-		// do nothing
 	}
 	
 	@Override
@@ -112,17 +151,64 @@ public class AuthenticateFragment extends Fragment implements OnItemSelectedList
 		switch(item.getItemId()){
 		
 		case MENU_SAVE: //if save button was pressed
-			//save();
-			//checkRegistrationSuccessful();
-			Toast.makeText(getActivity(), "Saved", Toast.LENGTH_SHORT).show();
-			((OnAuthenticated) getActivity()).success();
+			if (checkValidEmail()){
+				if(isFormComplete()){
+					save();
+					Toast.makeText(getActivity(), "Saved", Toast.LENGTH_SHORT).show();
+					((OnAuthenticated) getActivity()).success(userId, university, degreePathway, universityEmail, yearOfStudy);
+				}
+			} else {
+				Toast.makeText(getActivity(), "Sorry, email address not valid", Toast.LENGTH_SHORT).show();
+			}
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void checkRegistrationSuccessful(){
-		
+	public void populateUniversityList(){
+		supportedUniversities.add("Queens University Belfast");
+	}
+	public void populateFacultyList(){
+		supportedPathways.add("Medicine");
+	}
+	public boolean checkValidEmail(){
+		return true;
 	}
 	
+	
+	private boolean isFormComplete(){
+		boolean isComplete = true;
+		String emailAddress = ETUniversityEmail.getText().toString();
+		//int yearOfStudy = Integer.parseInt(ETYearOfStudy.getText().toString());
+		String university = SUniversity.getText().toString();
+		String degreePathway = SDegreePathway.getText().toString();
+		
+		if(emailAddress.length() == 0 || emailAddress.contains("@")==false){
+			isComplete = false;
+			Toast.makeText(getActivity(), "Please enter a university email address", Toast.LENGTH_SHORT).show();
+//		} else if (yearOfStudy<=0 || yearOfStudy>10){
+//			isComplete = false;
+//			Toast.makeText(getActivity(), "Please enter a valid year of study", Toast.LENGTH_SHORT).show();
+		} else if (university.equals("")){
+			isComplete = false;
+			Toast.makeText(getActivity(), "Please select a university", Toast.LENGTH_SHORT).show();
+		} else if (degreePathway.equals("")){
+			isComplete = false;
+			Toast.makeText(getActivity(), "Please select a degree pathway", Toast.LENGTH_SHORT).show();
+		}
+		return isComplete;
+	}
+
+	private void save(){
+		
+		userId = UUID.randomUUID().getMostSignificantBits();
+		// put all required values into a contentValues object
+		universityEmail = ETUniversityEmail.getText().toString();
+		yearOfStudy = Integer.valueOf(ETYearOfStudy.getText().toString());
+		university = SUniversity.getText().toString();
+		degreePathway = SDegreePathway.getText().toString();
+
+		
+		Toast.makeText(getActivity(), getString(R.string.task_saved_message), Toast.LENGTH_SHORT).show();
+	}
 }

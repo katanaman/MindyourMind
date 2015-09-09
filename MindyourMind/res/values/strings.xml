@@ -21,7 +21,7 @@
     <string name="usage_data_description">Allow application to gather anonymous usage data</string>
     <string name="usage_data_title">Usage data</string>
     <string name="login">Login</string>
-    <string name="sign_up">Signup</string>
+    <string name="sign_up"><u>Signup</u></string>
     <string name="name">Name</string>
     <string name="password">Password</string>
     <string name="passcode">Passcode</string>
@@ -80,5 +80,6 @@
 	<string name="menu_add">Add diary entry</string>
 	<string name="not_me_q">not me?</string>
 	<string name="email_place_holder">current user</string>
+	<string name="university_email">University Email</string>
     
 </resources>

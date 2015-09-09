@@ -2,77 +2,70 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical">
-    
-    <ScrollView 
-        android:layout_width="match_parent"
-    	android:layout_height="wrap_content">
+    android:gravity="center_vertical" >
 
-	    <LinearLayout
-	        android:id="@+id/SignUpAuthenticate"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:gravity="center"
-	        android:orientation="vertical" >
-	        
-	         <EditText
-	              android:id="@+id/editUniversityEmail"
-	              android:hint="@string/university_email_address"
-	              android:layout_width="match_parent"
-	              android:layout_height="wrap_content"
-				  android:layout_marginStart="@dimen/gutter"
-				  android:layout_marginLeft="@dimen/gutter"
-				  android:layout_marginEnd="@dimen/gutter"
-				  android:layout_marginRight="@dimen/gutter"
-	              android:gravity="start"
-	              android:inputType="textEmailAddress" >
-	              <requestFocus />
-	           </EditText>
-	
-		     <Spinner
-		       style="?android:attr/editTextStyle"
-		       android:id="@+id/spinnerUniversity"
-		       android:hint="@string/university"
-		       android:layout_width="match_parent"
-		       android:layout_height="wrap_content"
-		       android:layout_marginStart="@dimen/gutter"
-			   android:layout_marginLeft="@dimen/gutter"
-			   android:layout_marginEnd="@dimen/gutter"
-			   android:layout_marginRight="@dimen/gutter"
-		       android:cursorVisible="true"
-		       android:gravity="start"
-		       android:spinnerMode="dialog">
-		       
-		       </Spinner>
-	
-	          <Spinner
-	              style="?android:attr/editTextStyle"
-	              android:id="@+id/spinnerDegreePathway"
-	              android:hint="@string/degreepathway"
-	              android:layout_width="match_parent"
-	              android:layout_height="wrap_content"
-				  android:layout_marginStart="@dimen/gutter"
-				  android:layout_marginLeft="@dimen/gutter"
-				  android:layout_marginEnd="@dimen/gutter"
-				  android:layout_marginRight="@dimen/gutter"
-	              android:gravity="start"
-	              android:inputType="text" >
-	            </Spinner>
-	            
-	          <EditText
-	              android:id="@+id/editTextYearOfStudy"
-	              android:hint="@string/yearofstudy"
-	              android:layout_width="match_parent"
-	              android:layout_height="wrap_content"
-				  android:layout_marginStart="@dimen/gutter"
-				  android:layout_marginLeft="@dimen/gutter"
-				  android:layout_marginEnd="@dimen/gutter"
-				  android:layout_marginRight="@dimen/gutter"
-	              android:gravity="start"
-	              android:inputType="number" >
-	           </EditText>
-     
-         </LinearLayout>
-	</ScrollView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/SignUpAuthenticate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <EditText
+                android:id="@+id/editUniversityEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/gutter"
+                android:ems="10"
+                android:gravity="start"
+                android:hint="@string/university_email_address"
+                android:inputType="textEmailAddress" >
+
+                <requestFocus />
+            </EditText>
+
+            <EditText
+                android:id="@+id/editTextYearOfStudy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/gutter"
+                android:ems="10"
+                android:gravity="start"
+                android:hint="@string/yearofstudy"
+                android:inputType="number" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/spinnerUniversity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/gutter"
+                android:cursorVisible="true"
+                android:focusable="false"
+                android:ems="10"
+                android:gravity="start"
+                android:hint="@string/university"
+                android:spinnerMode="dialog" />
+
+            <EditText
+                android:id="@+id/spinnerDegreePathway"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/gutter"
+                android:ems="10"
+                android:focusable="false"
+                android:gravity="start"
+                android:hint="@string/degreepathway"
+                android:inputType="text" />
+        </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>
- 

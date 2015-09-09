@@ -32,7 +32,7 @@ public class MainMenuActivityTemp extends ActionBarActivity {
 	        		new MenuComponent("calendar", "calendar_icon","CalendarViewActivity"),
 	        		new MenuComponent("happyZone", "vhappy","HappyZone"),
 	        		new MenuComponent("guidanceCentre", "tips","GuidanceCentreActivity"),
-	        		new MenuComponent("meditationZone", "meditation_icon","MeditationZone"),
+	        		new MenuComponent("meditationZone", "meditation_icon","MeditationZoneActivity"),
 	        		new MenuComponent("statistics", "graphs","GraphViewActivity")
 	        		};
 			menu = menuItems;

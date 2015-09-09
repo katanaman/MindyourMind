@@ -1,22 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="8dp" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
 
-	<Spinner
-	    android:id="@+id/spinner"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:spinnerMode="dropdown"/>
-	
-	<Button
-	    android:id="@+id/buttonDone"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:paddingTop="8dp"
-	    android:text="@string/done"
-	    android:textColor="@android:color/white"
-	    android:textStyle="bold" />
-</LinearLayout>
+    <TextView
+        android:id="@+id/dialog_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/gutter"
+        android:hint="Please select an option" />
+
+    <Spinner
+        android:id="@+id/dialog_spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/dialogOK"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialog_spinner"
+        android:text="OK" />
+
+    <Button
+        android:id="@+id/dialogCancel"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialog_spinner"
+        android:layout_toRightOf="@id/dialogOK"
+        android:text="Cancel" />
+
+</RelativeLayout>

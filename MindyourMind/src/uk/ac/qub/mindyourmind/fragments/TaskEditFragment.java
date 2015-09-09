@@ -297,8 +297,8 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener, OnT
 	}
 
 	@Override
-	public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-		if (data.getCount() == 0){
+	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+		if (cursor.getCount() == 0){
 			getActivity().runOnUiThread(new Runnable() {
 				
 				@Override
@@ -309,9 +309,9 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener, OnT
 			return;
 		}
 		
-		titleText.setText(data.getString(data.getColumnIndexOrThrow(TaskProvider.COLUMN_TITLE)));
-		notesText.setText(data.getString(data.getColumnIndexOrThrow(TaskProvider.COLUMN_NOTES)));
-		Long dateInMillis = data.getLong(data.getColumnIndexOrThrow(TaskProvider.COLUMN_DATE_TIME));
+		titleText.setText(cursor.getString(cursor.getColumnIndexOrThrow(TaskProvider.COLUMN_TITLE)));
+		notesText.setText(cursor.getString(cursor.getColumnIndexOrThrow(TaskProvider.COLUMN_NOTES)));
+		Long dateInMillis = cursor.getLong(cursor.getColumnIndexOrThrow(TaskProvider.COLUMN_DATE_TIME));
 		
 		Date date = new Date (dateInMillis);
 		taskDateAndTime.setTime(date);

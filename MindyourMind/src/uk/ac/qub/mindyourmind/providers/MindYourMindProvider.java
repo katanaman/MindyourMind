@@ -16,12 +16,13 @@ import uk.ac.qub.mindyourmind.database.UserTable;
 
 public class MindYourMindProvider extends ContentProvider {
 
-
+	public static final String DEFAULT_TAG = "mindYourMindProvider";
+	
 	//the database
 	SQLiteDatabase db;
 
 	//content provider Uri and Authority
-	public static final String AUTHORITY = "uk.ac.qub.mindyourmind.providers.TaskProvider";
+	public static final String AUTHORITY = "uk.ac.qub.mindyourmind.providers.MindYourMindProvider";
 
 	public static final Uri DIARY_URI = Uri.parse("content://" + AUTHORITY + "/diaryentry");
 	public static final Uri EDUCATION_URI = Uri.parse("content://" + AUTHORITY + "/education");
