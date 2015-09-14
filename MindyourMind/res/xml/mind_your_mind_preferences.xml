@@ -4,14 +4,15 @@
     <PreferenceCategory
         android:title = "@string/app_name">
         
-        
         <CheckBoxPreference
             android:key="@string/pref_usage_data_key"
             android:summary="@string/usage_data_description" 
             android:title="@string/usage_data_title"/>
-        
-        <Preference
-            android:key="@string/pref_intro_played_key"/>
+         
+         <CheckBoxPreference
+            android:key="@string/pref_should_play_intro_video"
+            android:summary="@string/should_play_intro_video_descroption" 
+            android:title="@string/should_play_intro_video_title"/>
           
     </PreferenceCategory>
     

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#00C5CD">
+    android:layout_height="match_parent">
     
 <VideoView
     android:id="@+id/videoView"
@@ -10,4 +9,9 @@
     android:layout_height="match_parent"
     android:layout_centerInParent="true"/>
 
+ <TextView 
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:id="@+id/textViewMask"/>
+ 
 </RelativeLayout>

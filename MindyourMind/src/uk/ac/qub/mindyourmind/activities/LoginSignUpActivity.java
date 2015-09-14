@@ -3,10 +3,12 @@ package uk.ac.qub.mindyourmind.activities;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.view.Window;
 import uk.ac.qub.mindyourmind.fragments.LoginSignUpFragment;
 import uk.ac.qub.mindyourmind.fragments.QuickSignInFragment;
 import uk.ac.qub.mindyourmind.interfaces.OnLogin;
@@ -28,6 +30,7 @@ public class LoginSignUpActivity extends ActionBarActivity implements OnLoginCli
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		setContentView(R.layout.activity_login_and_sign_up);
 		
 		//get shared preferences manager

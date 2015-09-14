@@ -13,6 +13,7 @@ import uk.ac.qub.mindyourmind.database.DiaryEntryTable;
 import uk.ac.qub.mindyourmind.database.RatingsTable;
 import uk.ac.qub.mindyourmind.database.UniversityContentRepoTable;
 import uk.ac.qub.mindyourmind.database.UserTable;
+import uk.ac.qub.mindyourmind.database.UserUniversityTable;
 
 public class MindYourMindProvider extends ContentProvider {
 
@@ -110,10 +111,10 @@ public class MindYourMindProvider extends ContentProvider {
 			break;
 
 		case EDUCATIONS_TASK :
-			c = db.query(UniversityContentRepoTable.TABLE_UNIVERSITY_CONTENT_REPO, UniversityContentRepoTable.PROJECTION, selection, selectionArgs, null, null, sortOrder);
+			c = db.query(UserUniversityTable.TABLE_USER_UNIVERSITY, UserUniversityTable.PROJECTION, selection, selectionArgs, null, null, sortOrder);
 			break;
 		case EDUCATION_TASK :
-			c = db.query(UniversityContentRepoTable.TABLE_UNIVERSITY_CONTENT_REPO, UniversityContentRepoTable.PROJECTION, UniversityContentRepoTable.COLUMN_UNIVERSITY_CONTENT_REPO_ID + "=?", new String[]{Long.toString(ContentUris.parseId(uri))}, null, null, null, null);
+			c = db.query(UserUniversityTable.TABLE_USER_UNIVERSITY, UserUniversityTable.PROJECTION, UserUniversityTable.COLUMN_USER_UNIVERSITY_ID + "=?", new String[]{Long.toString(ContentUris.parseId(uri))}, null, null, null, null);
 			if(c.getCount() >0){
 				c.moveToFirst();
 			}
@@ -194,11 +195,11 @@ public class MindYourMindProvider extends ContentProvider {
 
 		case EDUCATIONS_TASK:
 			//don't allow value to specify it's own row id
-			if (values.containsKey(UniversityContentRepoTable.COLUMN_UNIVERSITY_CONTENT_REPO_ID)){
+			if (values.containsKey(UserUniversityTable.COLUMN_USER_UNIVERSITY_ID)){
 				throw new UnsupportedOperationException();
 				}
 			//return the id of the newly inserted item
-			id = db.insertOrThrow(UniversityContentRepoTable.TABLE_UNIVERSITY_CONTENT_REPO, null, values);
+			id = db.insertOrThrow(UserUniversityTable.TABLE_USER_UNIVERSITY, null, values);
 			//observer patten to notify the listners 
 			getContext().getContentResolver().notifyChange(uri, null);
 			//return the added uri with it's id 
