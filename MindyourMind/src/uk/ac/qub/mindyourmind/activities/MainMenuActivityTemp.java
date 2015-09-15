@@ -119,8 +119,8 @@ public class MainMenuActivityTemp extends ActionBarActivity {
 	public void goToLogin() {
 		Intent intent = new Intent(this, LoginSignUpActivity.class);
     	intent.addCategory(Intent.CATEGORY_HOME);
-    	intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    	intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
     	startActivity(intent);
-		
+    	finish();		
 	}
 }

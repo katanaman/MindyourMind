@@ -17,11 +17,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import uk.ac.qub.mindyourmind.R;
 import uk.ac.qub.mindyourmind.activities.LoginSignUpActivity;
-import uk.ac.qub.mindyourmind.activities.TaskEditActivity;
 import uk.ac.qub.mindyourmind.database.UserTable;
 import uk.ac.qub.mindyourmind.interfaces.OnEditFinished;
+import uk.ac.qub.mindyourmind.interfaces.OnLogin;
 import uk.ac.qub.mindyourmind.interfaces.OnLoginClicked;
 import uk.ac.qub.mindyourmind.providers.MindYourMindProvider;
 
@@ -92,8 +93,9 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 				//get shared preferences manager
 				SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 				SharedPreferences.Editor editor = prefs.edit();
-				editor.remove(UserTable.COLUMN_USER_ID);
+				editor.remove(getResources().getString(R.string.pref_current_user));
 				editor.commit();
+				((OnLogin)getActivity()).goToLogin();
 			}
 		});
 		
@@ -107,8 +109,6 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 			}
 		});
 		
-		userEmail.setText(email);
-		
 		return view;
 	}
 	
@@ -116,6 +116,8 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 		if (passcode.getText().toString().equals(""+correctPasscode)){
 			return true;	
 		} else {
+			Toast.makeText(getActivity(), "Incorrect passcode", Toast.LENGTH_SHORT);
+			passcode.setText("");
 			return false;
 		}
 	}
@@ -123,6 +125,7 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		Uri Uri = ContentUris.withAppendedId(MindYourMindProvider.USER_URI, userId);
+		Log.d(DEFAULT_FRAGMNET_TAG, "onCreateLoader called, id: " + Uri);
 		return new CursorLoader(getActivity(),Uri,null,null,null,null);
 		//return new CursorLoader(getActivity(), MindYourMindProvider.USER_URI, null, null, null, null);
 	}
@@ -133,20 +136,24 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 			getActivity().runOnUiThread(new Runnable() {
 				@Override
 				public void run() {
+					Log.d(DEFAULT_FRAGMNET_TAG, "loader returned empty");
 					((OnEditFinished) getActivity()).finishEditingTask();
 				}
 			});
 		}
-		
-		correctPasscode = (data.getInt(data.getColumnIndexOrThrow(UserTable.COLUMN_USER_CODE)));
-		email = (data.getString(data.getColumnIndexOrThrow(UserTable.COLUMN_USER_EMAIL)));
-		Log.d(DEFAULT_FRAGMNET_TAG, "returned passcode = " + correctPasscode);
-		Log.d(DEFAULT_FRAGMNET_TAG, "returned email = " + email);
+		data.moveToFirst();
+		try{
+			correctPasscode = (data.getInt(data.getColumnIndexOrThrow(UserTable.COLUMN_USER_CODE)));
+			email = (data.getString(data.getColumnIndexOrThrow(UserTable.COLUMN_USER_EMAIL)));
+		} catch (Exception e){
+			Log.d(DEFAULT_FRAGMNET_TAG, "returned passcode = " + correctPasscode);
+			Log.d(DEFAULT_FRAGMNET_TAG, "returned email = " + email);
+		}
+		userEmail.setText(email);
 	}
 
 	@Override
 	public void onLoaderReset(Loader<Cursor> loader) {
 		// nothing to reset
-		
 	}
 }

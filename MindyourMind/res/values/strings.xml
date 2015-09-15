@@ -9,7 +9,8 @@
     <string name="pref_usage_data_key">collect_usage_data</string>
     <string name="pref_task_title_key">default_task_title</string>
     <string name="pref_default_time_from_now_key">time_from_now_default</string>
-    <string name="pref_should_play_intro_video">should_play_intro_video</string>
+    <string name="pref_play_intro_key">has_intro_played</string>
+    <string name="pref_current_user">current_user</string>
     
     <string name="task_saved_message">Saved</string>
     <string name="default_title">Default Title</string>

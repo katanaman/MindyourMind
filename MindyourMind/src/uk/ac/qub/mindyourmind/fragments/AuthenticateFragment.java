@@ -1,6 +1,11 @@
 package uk.ac.qub.mindyourmind.fragments;
 
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Random;
 import java.util.UUID;
 
 import android.app.Fragment;
@@ -17,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.EditText;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 import uk.ac.qub.mindyourmind.R;
 import uk.ac.qub.mindyourmind.database.UserTable;
@@ -201,7 +207,8 @@ public class AuthenticateFragment extends Fragment {
 
 	private void save(){
 		
-		userId = UUID.randomUUID().getMostSignificantBits();
+		 
+		userId = generateUserID(); 
 		// put all required values into a contentValues object
 		universityEmail = ETUniversityEmail.getText().toString();
 		yearOfStudy = Integer.valueOf(ETYearOfStudy.getText().toString());
@@ -210,5 +217,16 @@ public class AuthenticateFragment extends Fragment {
 
 		
 		Toast.makeText(getActivity(), getString(R.string.task_saved_message), Toast.LENGTH_SHORT).show();
+		
+	}
+	
+	private long generateUserID(){
+		
+		DateFormat fd = new SimpleDateFormat("yyyyMMddhhmmss");
+		String UId = (fd.format(new Date())) + (Math.abs(new Random().nextInt(999)));
+		
+		Long uID = Long.parseLong(UId);
+		Log.d(DEFAULT_FRAGMNET_TAG, "generated Id : " +UId);
+		return uID;
 	}
 }

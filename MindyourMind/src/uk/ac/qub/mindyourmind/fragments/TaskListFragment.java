@@ -22,8 +22,6 @@ import uk.ac.qub.mindyourmind.providers.TaskProvider;
 import android.app.LoaderManager;
 import uk.ac.qub.mindyourmind.interfaces.OnEditTask;
 
-
-
 public class TaskListFragment extends Fragment implements  LoaderManager.LoaderCallbacks<Cursor>{
 
 	RecyclerView recyclerView;

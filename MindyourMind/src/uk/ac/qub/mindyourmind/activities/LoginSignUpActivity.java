@@ -7,6 +7,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import uk.ac.qub.mindyourmind.fragments.LoginSignUpFragment;
@@ -18,6 +19,8 @@ import uk.ac.qub.mindyourmind.R;
 import uk.ac.qub.mindyourmind.database.UserTable;
 @SuppressWarnings("deprecation")
 public class LoginSignUpActivity extends ActionBarActivity implements OnLoginClicked, OnSignUpClicked, OnLogin {
+	
+	public static final String TAG ="loginSignUpActivity";
 	
 	//static identifier for shared preferences
 	public static final String EXTRA_USERID ="userId";
@@ -35,11 +38,12 @@ public class LoginSignUpActivity extends ActionBarActivity implements OnLoginCli
 		
 		//get shared preferences manager
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-	
 		Fragment fragment;
 		
 		//get last logged in userID from shared preferences
-		long userID = prefs.getLong(UserTable.COLUMN_USER_ID, -1);
+		long userID = prefs.getLong(getResources().getString(R.string.pref_current_user), -1L);
+		Log.d(TAG, "returned user id: " + userID);
+		
 		
 		//check if it's not null
 		if(userID != -1){
@@ -67,6 +71,4 @@ public class LoginSignUpActivity extends ActionBarActivity implements OnLoginCli
 	public void goToLogin() {
 		getFragmentManager().beginTransaction().replace(R.id.container, LoginSignUpFragment.newInstance()).commit();
 	}
-
-	
 }

@@ -46,15 +46,28 @@
             android:layout_centerHorizontal="true"
             android:inputType="textPassword" >
           </EditText>
-		            
+		     
+        <RelativeLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/login_signup_spacing"
+            android:layout_below="@id/editTextPassword">
 	    <Button
 	        android:id="@+id/button_login"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_below="@id/editTextPassword"
-	        android:layout_marginTop="@dimen/login_signup_spacing"
 	        android:layout_centerHorizontal="true"
 	        android:text="@string/login"/>
+	    
+	    <ProgressBar 
+	        android:id="@+id/progressBar"
+	        android:layout_height="match_parent"
+	        android:layout_width="wrap_content"
+	        android:layout_toRightOf="@id/button_login"
+	        android:layout_alignBottom="@id/button_login"
+	        />
+	    </RelativeLayout>
 	    
 	    <TextView 
 	        android:id="@+id/text_view_sign_up"
@@ -63,9 +76,7 @@
 	        android:layout_alignParentRight="true"
 	        android:layout_alignParentEnd="true"
 	        android:layout_alignParentBottom="true"
-	        android:layout_marginRight="@dimen/login_signup_spacing"
-	        android:layout_marginEnd="@dimen/login_signup_spacing"
-	        android:layout_centerHorizontal="true"
+	        android:paddingRight="@dimen/login_signup_spacing"
 	        android:text="@string/sign_up"
 	        android:textAppearance="?android:attr/textAppearanceMedium"/>
     

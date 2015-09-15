@@ -7,10 +7,13 @@ import java.util.Calendar;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.net.Uri;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -40,6 +43,7 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
 	long userId;
 	String university, degreePathway, universityEmail; 
 	int yearOfStudy;
+	SharedPreferences prefs;
 	
 	static final String USER_NAME = "user_name";
 	static final String USER_PASSWORD = "user_password";
@@ -68,6 +72,8 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
 		genders = new ArrayList<String>();
 		genders.add("Male");
 		genders.add("Female");
+		
+		prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 		
 		Bundle arguments = getArguments();
 		if(arguments !=null){
@@ -234,6 +240,8 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
     
     private void save(){
     	
+    	setCurrentUser();
+    	
 		// put all required values into a contentValues object
 		String name = ETName.getText().toString();
 		String password = ETPassword.getText().toString();
@@ -266,5 +274,11 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
 		//int count = getActivity().getContentResolver().update(uri, values, null, null);
 		//Log.d(DEFAULT_FRAGMNET_TAG, "number of rows affected : "+count);
 		Toast.makeText(getActivity(), "Saved", Toast.LENGTH_SHORT).show();
+	}
+    
+    private void setCurrentUser(){
+		Editor editor = prefs.edit();
+		editor.putLong(getResources().getString(R.string.pref_current_user), userId);
+		editor.commit();
 	}
 }

@@ -10,9 +10,10 @@
             android:title="@string/usage_data_title"/>
          
          <CheckBoxPreference
-            android:key="@string/pref_should_play_intro_video"
+            android:key="@string/pref_play_intro_key"
             android:summary="@string/should_play_intro_video_descroption" 
-            android:title="@string/should_play_intro_video_title"/>
+            android:title="@string/should_play_intro_video_title"
+            android:defaultValue="true"/>
           
     </PreferenceCategory>
     
