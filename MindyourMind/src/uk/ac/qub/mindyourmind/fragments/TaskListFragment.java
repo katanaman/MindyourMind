@@ -5,8 +5,10 @@ import android.app.Fragment;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,14 +20,18 @@ import android.view.ViewGroup;
 import uk.ac.qub.mindyourmind.activities.PreferencesActivity;
 import uk.ac.qub.mindyourmind.R;
 import uk.ac.qub.mindyourmind.adapters.TaskListAdapter;
+import uk.ac.qub.mindyourmind.database.DiaryEntryTable;
+import uk.ac.qub.mindyourmind.providers.MindYourMindProvider;
 import uk.ac.qub.mindyourmind.providers.TaskProvider;
 import android.app.LoaderManager;
 import uk.ac.qub.mindyourmind.interfaces.OnEditTask;
 
-public class TaskListFragment extends Fragment implements  LoaderManager.LoaderCallbacks<Cursor>{
+public class TaskListFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
 
 	RecyclerView recyclerView;
 	TaskListAdapter adapter;
+	SharedPreferences prefs;
+	long userID;
 	
 	public TaskListFragment(){
 		//required empty constructor
@@ -35,14 +41,17 @@ public class TaskListFragment extends Fragment implements  LoaderManager.LoaderC
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		adapter = new TaskListAdapter();
+		prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+		userID = prefs.getLong(getResources().getString(R.string.pref_current_user), 0);
+		if(userID!=0){
+			getLoaderManager().initLoader(0, null, this);
+		}
 		
-		getLoaderManager().initLoader(0, null, this);
 	}
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		
 		View v =  inflater.inflate(R.layout.fragment_task_list, container, false);
 		recyclerView = (RecyclerView) v.findViewById(R.id.recycler);
 		recyclerView.setAdapter(adapter);
@@ -79,7 +88,10 @@ public class TaskListFragment extends Fragment implements  LoaderManager.LoaderC
 	
 	@Override
 	public Loader<Cursor> onCreateLoader(int ignored, Bundle args){
-		return new CursorLoader(getActivity(), TaskProvider.CONTENT_URI, null, null, null, null);
+		String selection = DiaryEntryTable.COLUMN_DIARY_ENTRY_USER_ID + "=?";
+	    String[] selectionArgs = {String.valueOf(userID)};
+		return new CursorLoader(getActivity(), MindYourMindProvider.DIARY_URI, null, selection, selectionArgs, null);
+		//return new CursorLoader(getActivity(), MindYourMindProvider.DIARY_URI, null, null, null, null);
 	}
 	
 	@Override

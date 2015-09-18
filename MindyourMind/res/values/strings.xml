@@ -12,7 +12,7 @@
     <string name="pref_play_intro_key">has_intro_played</string>
     <string name="pref_current_user">current_user</string>
     
-    <string name="task_saved_message">Saved</string>
+    <string name="entry_saved_message">Saved</string>
     <string name="default_title">Default Title</string>
     <string name="tasks">Tasks</string>
     <string name="default_title_description">The default title for a task</string>
@@ -85,5 +85,7 @@
 	<string name="email_place_holder">current user</string>
 	<string name="university_email">University Email</string>
 	<string name="skip">Skip</string>
+	<string name="sliders_satisfied_text">How satisfied are you with your day?</string>
+	<string name="sliders_happiness_text">How happy are you with your day?</string>
     
 </resources>

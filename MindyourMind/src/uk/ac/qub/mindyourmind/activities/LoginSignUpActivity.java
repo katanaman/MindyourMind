@@ -41,12 +41,12 @@ public class LoginSignUpActivity extends ActionBarActivity implements OnLoginCli
 		Fragment fragment;
 		
 		//get last logged in userID from shared preferences
-		long userID = prefs.getLong(getResources().getString(R.string.pref_current_user), -1L);
+		long userID = prefs.getLong(getResources().getString(R.string.pref_current_user), 0L);
 		Log.d(TAG, "returned user id: " + userID);
 		
 		
 		//check if it's not null
-		if(userID != -1){
+		if(userID != 0){
 			fragment = QuickSignInFragment.newInstance(userID);
 		} else {
 			fragment = LoginSignUpFragment.newInstance();

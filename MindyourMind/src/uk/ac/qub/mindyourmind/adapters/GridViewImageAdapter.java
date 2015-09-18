@@ -3,6 +3,8 @@ package uk.ac.qub.mindyourmind.adapters;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.webkit.WebSettings.LayoutAlgorithm;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -41,9 +43,10 @@ public class GridViewImageAdapter extends BaseAdapter {
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
+            //imageView.setLayoutParams(new GridView.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, parent.getHeight()/3));
             imageView.setLayoutParams(new GridView.LayoutParams(MENU_ICON_SIZE, MENU_ICON_SIZE));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(8, 8, 8, 8);
+            imageView.setPadding(8,8,8,8);
         } else {
             imageView = (ImageView) convertView;
         }

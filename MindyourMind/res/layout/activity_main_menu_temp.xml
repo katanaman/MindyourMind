@@ -25,4 +25,15 @@
         android:stretchMode="columnWidth"
         android:verticalSpacing="50dp" />
     
+    <!-- 
+    <GridView
+        android:id="@+id/grdImages"
+        android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:numColumns="2"
+        android:gravity="center_horizontal"
+        android:stretchMode="columnWidth"/> -->
+    
 </LinearLayout>

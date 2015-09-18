@@ -16,7 +16,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import uk.ac.qub.mindyourmind.R;
+import uk.ac.qub.mindyourmind.database.DiaryEntryTable;
 import uk.ac.qub.mindyourmind.interfaces.OnEditTask;
+import uk.ac.qub.mindyourmind.providers.MindYourMindProvider;
 import uk.ac.qub.mindyourmind.providers.TaskProvider;
 
 
@@ -41,10 +43,9 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
 		cursor = c;
 		if (cursor!=null){
 			cursor.moveToFirst();
-			titleColumnIndex = cursor.getColumnIndex(TaskProvider.COLUMN_TITLE);
-			notesColumnIndex = cursor.getColumnIndex(TaskProvider.COLUMN_NOTES);
-			idColumnIndex = cursor.getColumnIndex(TaskProvider.COLUMN_TASKID);
-			
+			titleColumnIndex = cursor.getColumnIndex(DiaryEntryTable.COLUMN_DIARY_ENTRY_TITLE);
+			notesColumnIndex = cursor.getColumnIndex(DiaryEntryTable.COLUMN_DIARY_ENTRY_CONTENT);
+			idColumnIndex = cursor.getColumnIndex(DiaryEntryTable.COLUMN_DIARY_ENTRY_ID);
 		}
 		notifyDataSetChanged();
 	}
@@ -120,7 +121,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
 	
 	void deleteTask(Context context, long id){
 		Log.d("TaskListAdapter", "called deleteTask");
-		context.getContentResolver().delete(ContentUris.withAppendedId(TaskProvider.CONTENT_URI, id), null, null);
+		context.getContentResolver().delete(ContentUris.withAppendedId(MindYourMindProvider.DIARY_URI, id), null, null);
 	}
 	
 	static class ViewHolder extends RecyclerView.ViewHolder {

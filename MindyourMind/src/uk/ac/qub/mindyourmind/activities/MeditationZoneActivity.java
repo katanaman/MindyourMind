@@ -11,22 +11,13 @@ import uk.ac.qub.mindyourmind.interfaces.OnPlayVideo;
 import uk.ac.qub.mindyourmind.R;
 
 @SuppressWarnings("deprecation")
-public class MeditationZoneActivity extends ActionBarActivity implements OnEditTask, OnPlayVideo {
+public class MeditationZoneActivity extends ActionBarActivity implements OnPlayVideo {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_meditation_zone);
 		setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-	}
-	
-	/**
-	 * called when a user wants to edit or insert a task.
-	 */
-	@Override
-	public void editTask(long id){
-		//when we are asked to edit a reminder, start the TaskEditActivity with the id of the task to edit
-		startActivity(new Intent(this, TaskEditActivity.class).putExtra(TaskEditActivity.EXTRA_TASKID, id));
 	}
 
 	@Override

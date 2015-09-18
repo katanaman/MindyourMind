@@ -3,29 +3,33 @@ package uk.ac.qub.mindyourmind.models;
 import java.util.Calendar;
 
 public class RatingsModel {
-	
-	private ratingTypes ratingType;
+
+	private RatingTypes ratingType;
 	private int ratingValue;
 	private Calendar timeStamp;
-	
-	public static enum ratingTypes{
-		Happiness, Satisfaction;
+
+	public static enum RatingTypes{
+		HAPPINESS, SATISFACTION;
 	}
-	
+
 	public RatingsModel() {
 	}
-	
-	public RatingsModel(ratingTypes ratingType, int ratingValue, Calendar timeStamp) {
+
+	public RatingsModel(RatingTypes ratingType) {
+		this.ratingType = ratingType;
+	}
+
+	public RatingsModel(RatingTypes ratingType, int ratingValue, Calendar timeStamp) {
 		this.ratingType = ratingType;
 		this.ratingValue = ratingValue;
 		this.timeStamp = timeStamp;
 	}
 
-	public ratingTypes getRatingType() {
+	public RatingTypes getRatingType() {
 		return ratingType;
 	}
 
-	public void setRatingType(ratingTypes ratingType) {
+	public void setRatingType(RatingTypes ratingType) {
 		this.ratingType = ratingType;
 	}
 
@@ -44,6 +48,6 @@ public class RatingsModel {
 	public void setTimeStamp(Calendar timeStamp) {
 		this.timeStamp = timeStamp;
 	}
-	}
+}
 
 

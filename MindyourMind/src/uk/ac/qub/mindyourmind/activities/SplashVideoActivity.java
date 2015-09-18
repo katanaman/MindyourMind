@@ -100,10 +100,8 @@ public class SplashVideoActivity extends Activity {
     
     public void goToLogin(){
     	//check to avoid opening multipul instances of the loginPage
-    	if(loginIntent==null){ 
-    		loginIntent = new Intent(this, LoginSignUpActivity.class);
-    	}
+    	loginIntent = new Intent(this, LoginSignUpActivity.class);
     	startActivity(loginIntent);
-    	this.finish();
+    	finish();
     }
 }

@@ -43,6 +43,7 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 	String email;
 	long userId;
 	int correctPasscode;
+	static QuickSignInFragment fragment;
 	
 	/**
 	 * get instance method with bundle args containing the last logged in userId
@@ -50,7 +51,9 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 	 * @return
 	 */
 	public static QuickSignInFragment newInstance(long userId) {
-		QuickSignInFragment fragment = new QuickSignInFragment();
+		if(fragment==null){
+			fragment = new QuickSignInFragment();
+		}
 		Bundle args = new Bundle();
 		args.putLong(LoginSignUpActivity.EXTRA_USERID, userId);
 		fragment.setArguments(args);
@@ -124,10 +127,12 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+		
 		Uri Uri = ContentUris.withAppendedId(MindYourMindProvider.USER_URI, userId);
 		Log.d(DEFAULT_FRAGMNET_TAG, "onCreateLoader called, id: " + Uri);
 		return new CursorLoader(getActivity(),Uri,null,null,null,null);
-		//return new CursorLoader(getActivity(), MindYourMindProvider.USER_URI, null, null, null, null);
+		
+//		return new CursorLoader(getActivity(), MindYourMindProvider.USER_URI, null, null, null, null);
 	}
 
 	@Override
@@ -136,19 +141,18 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 			getActivity().runOnUiThread(new Runnable() {
 				@Override
 				public void run() {
-					Log.d(DEFAULT_FRAGMNET_TAG, "loader returned empty");
-					((OnEditFinished) getActivity()).finishEditingTask();
+					Log.e(DEFAULT_FRAGMNET_TAG, "no rows returned");
+					getActivity().finish();
 				}
 			});
+			return;
 		}
 		data.moveToFirst();
-		try{
-			correctPasscode = (data.getInt(data.getColumnIndexOrThrow(UserTable.COLUMN_USER_CODE)));
-			email = (data.getString(data.getColumnIndexOrThrow(UserTable.COLUMN_USER_EMAIL)));
-		} catch (Exception e){
-			Log.d(DEFAULT_FRAGMNET_TAG, "returned passcode = " + correctPasscode);
-			Log.d(DEFAULT_FRAGMNET_TAG, "returned email = " + email);
-		}
+		
+		correctPasscode = data.getInt(data.getColumnIndexOrThrow(UserTable.COLUMN_USER_CODE));
+		email = data.getString(data.getColumnIndexOrThrow(UserTable.COLUMN_USER_EMAIL));
+		Log.d(DEFAULT_FRAGMNET_TAG, "returned passcode = " + correctPasscode);
+		Log.d(DEFAULT_FRAGMNET_TAG, "returned email = " + email);
 		userEmail.setText(email);
 	}
 

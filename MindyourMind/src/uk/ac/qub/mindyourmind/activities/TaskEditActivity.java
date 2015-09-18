@@ -2,10 +2,11 @@ package uk.ac.qub.mindyourmind.activities;
 
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import uk.ac.qub.mindyourmind.fragments.FragmentSliders;
+import uk.ac.qub.mindyourmind.fragments.SlidersFragment;
 import uk.ac.qub.mindyourmind.fragments.TaskEditFragment;
 import uk.ac.qub.mindyourmind.interfaces.OnEditFinished;
 import uk.ac.qub.mindyourmind.R;
@@ -13,7 +14,7 @@ import uk.ac.qub.mindyourmind.R;
 @SuppressWarnings("deprecation")
 public class TaskEditActivity extends ActionBarActivity implements OnEditFinished {
 	
-	public static final String EXTRA_TASKID ="taskId";
+	public static final String EXTRA_DIARYID ="diaryId";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,7 @@ public class TaskEditActivity extends ActionBarActivity implements OnEditFinishe
 		
 		setSupportActionBar((Toolbar) findViewById(R.id.toolbar)); 
 		
-		long id = getIntent().getLongExtra(TaskEditActivity.EXTRA_TASKID, 0L);
+		long id = getIntent().getLongExtra(TaskEditActivity.EXTRA_DIARYID, 0L);
 		
 		Fragment fragment = TaskEditFragment.newInstance(id);
 		
@@ -34,16 +35,14 @@ public class TaskEditActivity extends ActionBarActivity implements OnEditFinishe
 	}
 
 	@Override
-	public void finishEditingTask() {
-		// when the user dismisses the editor finish the task
+	public void finishEditingEntry() {
+		// when the user dismisses the editor finish the entry
 		finish();
 	}
 
 	@Override
 	public void finishEditingRating() {
-		Fragment fragment = FragmentSliders.newInstance();
-		String fragmentTag = FragmentSliders.DEFAULT_FRAGMNET_TAG;
-		getFragmentManager().beginTransaction().replace(R.id.container, fragment, fragmentTag).commit();
-		
+		startActivity(new Intent(this, SlidersActivity.class));
+		finish();
 	}
 }

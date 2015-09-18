@@ -216,14 +216,14 @@ public class AuthenticateFragment extends Fragment {
 		degreePathway = SDegreePathway.getText().toString();
 
 		
-		Toast.makeText(getActivity(), getString(R.string.task_saved_message), Toast.LENGTH_SHORT).show();
+		Toast.makeText(getActivity(), getString(R.string.entry_saved_message), Toast.LENGTH_SHORT).show();
 		
 	}
 	
 	private long generateUserID(){
 		
 		DateFormat fd = new SimpleDateFormat("yyyyMMddhhmmss");
-		String UId = (fd.format(new Date())) + (Math.abs(new Random().nextInt(999)));
+		String UId = fd.format(new Date()) + Math.abs(new Random().nextInt(999));
 		
 		Long uID = Long.parseLong(UId);
 		Log.d(DEFAULT_FRAGMNET_TAG, "generated Id : " +UId);

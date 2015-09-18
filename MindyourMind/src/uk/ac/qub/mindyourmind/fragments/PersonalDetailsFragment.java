@@ -45,6 +45,7 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
 	int yearOfStudy;
 	SharedPreferences prefs;
 	
+	static final String USER_ID = "user_id";
 	static final String USER_NAME = "user_name";
 	static final String USER_PASSWORD = "user_password";
 	static final String USER_PASSCODE = "user_password";
@@ -169,6 +170,7 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		
+		outState.putLong(USER_ID, userId);
 		outState.putString(USER_NAME, ETName.getText().toString());
 		outState.putString(USER_PASSWORD, ETPassword.getText().toString());
 		outState.putString(USER_CONFIRM_PASSWORD, ETConfirmPassword.getText().toString());
@@ -187,7 +189,6 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		super.onCreateOptionsMenu(menu, inflater);
 		inflater.inflate(R.menu.menu_login_sign_up, menu);
-		//menu.add(0, MENU_SAVE, 0, R.string.confirm).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 	}
 	
 	@Override
@@ -222,7 +223,7 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
     }
 	
 	/**
-     * A helper method to show our Date picker
+     * A helper method to show Date picker
      */
     private void showDatePicker() {
         // Create a fragment transaction

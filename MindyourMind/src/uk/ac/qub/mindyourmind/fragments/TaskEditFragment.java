@@ -40,6 +40,8 @@ import android.widget.Toast;
 import uk.ac.qub.mindyourmind.R;
 import uk.ac.qub.mindyourmind.activities.TaskEditActivity;
 import uk.ac.qub.mindyourmind.adapters.TaskListAdapter;
+import uk.ac.qub.mindyourmind.database.DiaryEntryTable;
+import uk.ac.qub.mindyourmind.providers.MindYourMindProvider;
 import uk.ac.qub.mindyourmind.providers.TaskProvider;
 import android.app.LoaderManager;
 import uk.ac.qub.mindyourmind.interfaces.OnEditFinished;
@@ -51,7 +53,7 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener, OnT
 	
 	private static final int MENU_SAVE = 1;
 	
-	static final String TASK_ID = "task_id";
+	static final String ENTRY_ID = "entry_id";
 	static final String TASK_DATE_AND_TIME = "taskDateAndTime";
 	
 	//views
@@ -61,8 +63,9 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener, OnT
 	TextView dateButton;
 	TextView timeButton;
 	ImageView imageView;
+	SharedPreferences prefs;
 	
-	long taskId;
+	long entryId;
 	Calendar taskDateAndTime;
 	
 	/**
@@ -73,7 +76,7 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener, OnT
 	public static TaskEditFragment newInstance(long id) {
 		TaskEditFragment fragment = new TaskEditFragment();
 		Bundle args = new Bundle();
-		args.putLong(TaskEditActivity.EXTRA_TASKID, id);
+		args.putLong(TaskEditActivity.EXTRA_DIARYID, id);
 		fragment.setArguments(args);
 		return fragment;
 	}
@@ -82,13 +85,15 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener, OnT
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
+		prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+		
 		Bundle arguments = getArguments();
 		if(arguments !=null){
-			taskId = arguments.getLong(TaskEditActivity.EXTRA_TASKID, 0L);
+			entryId = arguments.getLong(TaskEditActivity.EXTRA_DIARYID, 0L);
 		}
 		
 		if (savedInstanceState != null){
-			taskId = savedInstanceState.getLong(TASK_ID);
+			entryId = savedInstanceState.getLong(ENTRY_ID);
 			taskDateAndTime = (Calendar) savedInstanceState.getSerializable(TASK_DATE_AND_TIME);
 		}
 		
@@ -101,7 +106,7 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener, OnT
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		
-		outState.putLong(TASK_ID, taskId);
+		outState.putLong(ENTRY_ID, entryId);
 		outState.putSerializable(TASK_DATE_AND_TIME, taskDateAndTime);
 	}
 	
@@ -136,8 +141,7 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener, OnT
 			}
 		});
 	
-		if (taskId ==0){
-			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+		if (entryId ==0){
 			String defaultTitleKey = getString(R.string.pref_task_title_key);
 			String defaultTimeKey = getString(R.string.pref_default_time_from_now_key);
 			
@@ -179,11 +183,15 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener, OnT
 		switch(item.getItemId()){
 		
 		case MENU_SAVE: //if save button was pressed
-			save();
-			//((OnEditFinished) getActivity()).finishEditingTask();
-			((OnEditFinished) getActivity()).finishEditingRating();
+			//if entry was a new entry, go to sliders
+			if(entryId==0){
+				save();
+				((OnEditFinished) getActivity()).finishEditingRating();
+			} else { //else finish the activity
+				save();
+				((OnEditFinished) getActivity()).finishEditingEntry();
+			}
 			return true;
-			
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -269,31 +277,32 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener, OnT
     	// put all required values into a contentValues object
     	String title = titleText.getText().toString();
     	ContentValues values = new ContentValues();
-    	values.put(TaskProvider.COLUMN_TITLE, title);
-    	values.put(TaskProvider.COLUMN_NOTES, notesText.getText().toString());
-    	values.put(TaskProvider.COLUMN_DATE_TIME, taskDateAndTime.getTimeInMillis());
+    	values.put(DiaryEntryTable.COLUMN_DIARY_ENTRY_TITLE, title);
+    	values.put(DiaryEntryTable.COLUMN_DIARY_ENTRY_CONTENT, notesText.getText().toString());
+    	values.put(DiaryEntryTable.COLUMN_DIARY_ENTRY_TIMESTAMP, taskDateAndTime.getTimeInMillis());
+    	values.put(DiaryEntryTable.COLUMN_DIARY_ENTRY_USER_ID, prefs.getLong(getResources().getString(R.string.pref_current_user), 0));
     	
     	//taskId==0 when we create a new task, otherwise it has an id already
-    	if(taskId == 0){
-    		Uri itemUri = getActivity().getContentResolver().insert(TaskProvider.CONTENT_URI, values);
-    		taskId = ContentUris.parseId(itemUri);
+    	if(entryId == 0){
+    		Uri itemUri = getActivity().getContentResolver().insert(MindYourMindProvider.DIARY_URI, values);
+    		entryId = ContentUris.parseId(itemUri);
     	} else {
     		//update the existing task
-    		Uri uri = ContentUris.withAppendedId(TaskProvider.CONTENT_URI, taskId);
+    		Uri uri = ContentUris.withAppendedId(MindYourMindProvider.DIARY_URI, entryId);
     		int count = getActivity().getContentResolver().update(uri, values, null, null);
     		
     		//throw error if more than one task is thrown
     		if(count != 1){
-    			throw new IllegalStateException("Unable to update "+ taskId);
+    			throw new IllegalStateException("Unable to update "+ entryId);
     		}
     	}
     	
-    	Toast.makeText(getActivity(), getString(R.string.task_saved_message), Toast.LENGTH_SHORT).show();
+    	Toast.makeText(getActivity(), getString(R.string.entry_saved_message), Toast.LENGTH_SHORT).show();
     }
 
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-		Uri taskUri = ContentUris.withAppendedId(TaskProvider.CONTENT_URI, taskId);
+		Uri taskUri = ContentUris.withAppendedId(MindYourMindProvider.DIARY_URI, entryId);
 		return new CursorLoader(getActivity(),taskUri,null,null,null,null);
 	}
 
@@ -301,24 +310,23 @@ public class TaskEditFragment extends Fragment implements OnDateSetListener, OnT
 	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
 		if (cursor.getCount() == 0){
 			getActivity().runOnUiThread(new Runnable() {
-				
 				@Override
 				public void run() {
-					((OnEditFinished) getActivity()).finishEditingTask();
+					((OnEditFinished) getActivity()).finishEditingEntry();
 				}
 			});
 			return;
 		}
 		
-		titleText.setText(cursor.getString(cursor.getColumnIndexOrThrow(TaskProvider.COLUMN_TITLE)));
-		notesText.setText(cursor.getString(cursor.getColumnIndexOrThrow(TaskProvider.COLUMN_NOTES)));
-		Long dateInMillis = cursor.getLong(cursor.getColumnIndexOrThrow(TaskProvider.COLUMN_DATE_TIME));
+		titleText.setText(cursor.getString(cursor.getColumnIndexOrThrow(DiaryEntryTable.COLUMN_DIARY_ENTRY_TITLE)));
+		notesText.setText(cursor.getString(cursor.getColumnIndexOrThrow(DiaryEntryTable.COLUMN_DIARY_ENTRY_CONTENT)));
+		Long dateInMillis = cursor.getLong(cursor.getColumnIndexOrThrow(DiaryEntryTable.COLUMN_DIARY_ENTRY_TIMESTAMP));
 		
 		Date date = new Date (dateInMillis);
 		taskDateAndTime.setTime(date);
 		
 		// setting image thumbnail
-	 	Picasso.with(getActivity()).load(TaskListAdapter.getImageUrlForTask(taskId)).into(imageView, new Callback() {
+	 	Picasso.with(getActivity()).load(TaskListAdapter.getImageUrlForTask(entryId)).into(imageView, new Callback() {
 			
 			@Override
 			public void onSuccess() {

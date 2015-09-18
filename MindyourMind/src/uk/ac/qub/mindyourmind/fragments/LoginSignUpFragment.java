@@ -145,15 +145,16 @@ public class LoginSignUpFragment extends Fragment implements LoaderManager.Loade
 		editor.commit();
 	}
 	
-	private int getIDFromEmail(String email) throws IllegalArgumentException{
+	private long getIDFromEmail(String email) throws IllegalArgumentException{
 		userDetails.moveToFirst();
 		while (!userDetails.isAfterLast()) {
 			if(email.equals(userDetails.getString(userDetails.getColumnIndex(UserTable.COLUMN_USER_EMAIL)))){
-				return userDetails.getInt(userDetails.getColumnIndex(UserTable.COLUMN_USER_ID));
+				return userDetails.getLong(userDetails.getColumnIndex(UserTable.COLUMN_USER_ID));
 			} 
 		}
 		throw new IllegalArgumentException("email address, has no ID");
 	}
+	
 	@Override
 	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
 		Log.d(DEFAULT_FRAGMNET_TAG, "Loader finshed");

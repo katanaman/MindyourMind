@@ -23,6 +23,6 @@ public class TaskListActivity extends ActionBarActivity implements OnEditTask {
 	@Override
 	public void editTask(long id){
 		//when we are asked to edit a reminder, start the TaskEditActivity with the id of the task to edit
-		startActivity(new Intent(this, TaskEditActivity.class).putExtra(TaskEditActivity.EXTRA_TASKID, id));
+		startActivity(new Intent(this, TaskEditActivity.class).putExtra(TaskEditActivity.EXTRA_DIARYID, id));
 	}
 }

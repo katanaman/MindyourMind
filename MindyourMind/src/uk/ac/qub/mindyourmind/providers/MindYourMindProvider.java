@@ -192,7 +192,6 @@ public class MindYourMindProvider extends ContentProvider {
 			//return the added uri with it's id 
 			return ContentUris.withAppendedId(uri, id);
 		
-
 		case EDUCATIONS_TASK:
 			//don't allow value to specify it's own row id
 			if (values.containsKey(UserUniversityTable.COLUMN_USER_UNIVERSITY_ID)){
@@ -205,7 +204,6 @@ public class MindYourMindProvider extends ContentProvider {
 			//return the added uri with it's id 
 			return ContentUris.withAppendedId(uri, id);
 		
-
 		default : 
 			throw new IllegalArgumentException("Unknown Uri: " + uri);
 		}
@@ -217,14 +215,14 @@ public class MindYourMindProvider extends ContentProvider {
 		int count;
 		
 		switch (URI_MATCHER.match(uri)) {
-		case ENTRIES_TASK: 
+		case ENTRY_TASK: 
 			count = db.delete(DiaryEntryTable.TABLE_DIARY_ENTRYS, DiaryEntryTable.COLUMN_DIARY_ENTRY_ID + "=?", new String[]{Long.toString(ContentUris.parseId(uri))});
 			
 			if (count>0){
 				getContext().getContentResolver().notifyChange(uri, null);
 			}
 			return count;
-		case USERS_TASK:
+		case USER_TASK:
 			count = db.delete(UserTable.TABLE_USERS, UserTable.COLUMN_USER_ID + "=?", new String[]{Long.toString(ContentUris.parseId(uri))});
 			
 			if (count>0){
@@ -232,7 +230,7 @@ public class MindYourMindProvider extends ContentProvider {
 			}
 			return count;
 
-		case RATINGS_TASK:
+		case RATING_TASK:
 			count = db.delete(RatingsTable.TABLE_RATINGS, RatingsTable.COLUMN_RATINGS_ID + "=?", new String[]{Long.toString(ContentUris.parseId(uri))});
 			
 			if (count>0){
@@ -240,7 +238,7 @@ public class MindYourMindProvider extends ContentProvider {
 			}
 			return count;
 
-		case EDUCATIONS_TASK:
+		case EDUCATION_TASK:
 			count = db.delete(UniversityContentRepoTable.TABLE_UNIVERSITY_CONTENT_REPO, UniversityContentRepoTable.COLUMN_UNIVERSITY_CONTENT_REPO_ID + "=?", new String[]{Long.toString(ContentUris.parseId(uri))});
 			
 			if (count>0){
@@ -259,7 +257,7 @@ public class MindYourMindProvider extends ContentProvider {
 		int count;
 		
 		switch (URI_MATCHER.match(uri)) {
-		case ENTRIES_TASK: 
+		case ENTRY_TASK: 
 			//don't allow the ability to change a task id
 			if ( values.containsKey(DiaryEntryTable.COLUMN_DIARY_ENTRY_ID)){
 				throw new UnsupportedOperationException();
@@ -275,7 +273,7 @@ public class MindYourMindProvider extends ContentProvider {
 			//return number of things changed
 			return count;
 		
-		case USERS_TASK:
+		case USER_TASK:
 			//don't allow the ability to change a task id
 			if ( values.containsKey(UserTable.COLUMN_USER_ID)){
 				throw new UnsupportedOperationException();
@@ -291,7 +289,7 @@ public class MindYourMindProvider extends ContentProvider {
 			//return number of things changed
 			return count;
 		
-		case RATINGS_TASK:
+		case RATING_TASK:
 			//don't allow the ability to change a task id
 			if ( values.containsKey(RatingsTable.COLUMN_RATINGS_ID)){
 				throw new UnsupportedOperationException();
@@ -307,7 +305,7 @@ public class MindYourMindProvider extends ContentProvider {
 			//return number of things changed
 			return count;
 	
-		case EDUCATIONS_TASK:
+		case EDUCATION_TASK:
 			//don't allow the ability to change a task id
 			if ( values.containsKey(UniversityContentRepoTable.COLUMN_UNIVERSITY_CONTENT_REPO_ID)){
 				throw new UnsupportedOperationException();
