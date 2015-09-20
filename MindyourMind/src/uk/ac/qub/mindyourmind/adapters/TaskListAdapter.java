@@ -23,16 +23,6 @@ import uk.ac.qub.mindyourmind.providers.TaskProvider;
 
 
 public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHolder> {
-
-	/*
-	static String[] fakeData = new String[] {
-		"One",
-		"Two",
-		"Three",
-		"Four",
-		"Five",
-		"ah ah ah!"
-	};*/
 	
 	Cursor cursor;
 	int titleColumnIndex;

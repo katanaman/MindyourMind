@@ -57,10 +57,10 @@
 	        android:id="@+id/TV_notMe"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
+	        android:padding="@dimen/login_signup_spacing"
 	        android:layout_alignParentRight="true"
 	        android:layout_alignParentEnd="true"
 	        android:layout_alignParentBottom="true"
-	        android:layout_margin="@dimen/login_signup_spacing"
 	        android:textColor="@color/accent_material_light"
 	        android:text="@string/not_me_q"/>
     

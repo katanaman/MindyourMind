@@ -3,8 +3,7 @@
 <RelativeLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginBottom="@dimen/login_signup_spacing">
+    android:layout_height="match_parent">
 	        
 	    <TextView 
 	        android:id="@+id/centerDiv"
@@ -73,10 +72,10 @@
 	        android:id="@+id/text_view_sign_up"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
+	        android:padding="@dimen/login_signup_spacing"
 	        android:layout_alignParentRight="true"
 	        android:layout_alignParentEnd="true"
 	        android:layout_alignParentBottom="true"
-	        android:paddingRight="@dimen/login_signup_spacing"
 	        android:text="@string/sign_up"
 	        android:textAppearance="?android:attr/textAppearanceMedium"/>
     

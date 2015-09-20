@@ -36,7 +36,7 @@ public class MainMenuActivityTemp extends ActionBarActivity {
 		MenuComponent[] menuItems = {
 				new MenuComponent("diary", "diary_icon","TaskListActivity"),
 				new MenuComponent("calendar", "calendar_icon","CalendarViewActivity"),
-				new MenuComponent("happyZone", "vhappy","HappyZoneActivity"),
+				new MenuComponent("sliderZone", "vhappy","SlidersActivity"),
 				new MenuComponent("guidanceCentre", "tips","GuidanceCentreActivity"),
 				new MenuComponent("meditationZone", "meditation_icon","MeditationZoneActivity"),
 				new MenuComponent("statistics", "graphs","GraphViewActivity")
@@ -118,7 +118,6 @@ public class MainMenuActivityTemp extends ActionBarActivity {
 	
 	public void goToLogin() {
 		Intent intent = new Intent(this, LoginSignUpActivity.class);
-    	intent.addCategory(Intent.CATEGORY_HOME);
     	intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
     	startActivity(intent);
     	finish();		

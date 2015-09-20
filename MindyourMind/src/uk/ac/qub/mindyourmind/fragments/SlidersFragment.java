@@ -1,13 +1,10 @@
 package uk.ac.qub.mindyourmind.fragments;
 
 import android.app.Fragment;
-import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -15,20 +12,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RadioGroup;
-import android.widget.RatingBar;
-import android.widget.RatingBar.OnRatingBarChangeListener;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 import uk.ac.qub.mindyourmind.R;
-import uk.ac.qub.mindyourmind.database.DiaryEntryTable;
 import uk.ac.qub.mindyourmind.database.RatingsTable;
-import uk.ac.qub.mindyourmind.interfaces.OnEditFinished;
 import uk.ac.qub.mindyourmind.interfaces.OnRatingsFinsihed;
 import uk.ac.qub.mindyourmind.models.RatingsModel;
 import uk.ac.qub.mindyourmind.models.RatingsModel.RatingTypes;
@@ -110,7 +101,8 @@ public class SlidersFragment extends Fragment implements OnSeekBarChangeListener
 		}
 
 	private void save(){
-		long timeStamp = System.currentTimeMillis();
+		Long timeStamp = System.currentTimeMillis();
+		
     	ContentValues valuesHappiness = new ContentValues();
     	valuesHappiness.put(RatingsTable.COLUMN_RATINGS_TYPE, rHappiess.getRatingType().toString());
     	valuesHappiness.put(RatingsTable.COLUMN_RATINGS_VALUE, rHappiess.getRatingValue());
@@ -118,8 +110,8 @@ public class SlidersFragment extends Fragment implements OnSeekBarChangeListener
     	valuesHappiness.put(RatingsTable.COLUMN_RATINGS_USER_ID, userId);
     	
     	ContentValues valuesSatisfaction = new ContentValues();
-    	valuesSatisfaction.put(RatingsTable.COLUMN_RATINGS_TYPE, rHappiess.getRatingType().toString());
-    	valuesSatisfaction.put(RatingsTable.COLUMN_RATINGS_VALUE, rHappiess.getRatingValue());
+    	valuesSatisfaction.put(RatingsTable.COLUMN_RATINGS_TYPE, rSatisfaction.getRatingType().toString());
+    	valuesSatisfaction.put(RatingsTable.COLUMN_RATINGS_VALUE, rSatisfaction.getRatingValue());
     	valuesSatisfaction.put(RatingsTable.COLUMN_RATINGS_TIMESTAMP, timeStamp);
     	valuesSatisfaction.put(RatingsTable.COLUMN_RATINGS_USER_ID, userId);
     	
@@ -162,7 +154,7 @@ public class SlidersFragment extends Fragment implements OnSeekBarChangeListener
 			imageNumber = 3;
 		} else if (progress<=80 && progress>60){
 			imageNumber = 4;
-		} else if (progress<100 && progress>80){
+		} else if (progress<=100 && progress>80){
 			imageNumber = 5;
 		} else {
 			imageNumber = 3;
@@ -171,11 +163,11 @@ public class SlidersFragment extends Fragment implements OnSeekBarChangeListener
 		switch(seekBar.getId()){
 		 case R.id.seekBar1:
 			 chooseImg(RatingTypes.HAPPINESS, imageNumber);
-			 rHappiess.setRatingValue(progress);
+			 rHappiess.setRatingValue(progress+1);
 			 break;
 		 case R.id.seekBar2:
 			 chooseImg(RatingTypes.SATISFACTION, imageNumber);
-			 rSatisfaction.setRatingValue(progress);
+			 rSatisfaction.setRatingValue(progress+1);
 			 break;
 		 default:
 			 Log.e(DEFAULT_FRAGMNET_TAG, "unrecognised Id : "+seekBar.getId());

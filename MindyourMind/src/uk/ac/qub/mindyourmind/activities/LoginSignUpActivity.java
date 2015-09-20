@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewDebug.FlagToString;
 import android.view.Window;
 import uk.ac.qub.mindyourmind.fragments.LoginSignUpFragment;
 import uk.ac.qub.mindyourmind.fragments.QuickSignInFragment;
@@ -52,13 +53,16 @@ public class LoginSignUpActivity extends ActionBarActivity implements OnLoginCli
 			fragment = LoginSignUpFragment.newInstance();
 		}
 		
-		getFragmentManager().beginTransaction().add(R.id.container, fragment).commit();
+		getFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
 	}
 
 	@Override
 	public void openMainMenuFragment(View v) {
 		//startActivity(new Intent(this, MainMenuActivity.class));
-		startActivity(new Intent(this, MainMenuActivityTemp.class));
+		Intent intent = new Intent(this, MainMenuActivityTemp.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK); 
+		startActivity(intent);
+		finish(); 
 	}
 
 	@Override

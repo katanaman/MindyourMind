@@ -115,6 +115,13 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 		return view;
 	}
 	
+	@Override
+	public void onPause() {
+		// clear the passcode box when fragment has lost focus 
+		super.onPause();
+		passcode.setText("");
+	}
+	
 	private boolean checkCode(){
 		if (passcode.getText().toString().equals(""+correctPasscode)){
 			return true;	
