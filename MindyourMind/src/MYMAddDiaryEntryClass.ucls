@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.8" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" language="java" name="uk.ac.qub.mindyourmind.activities.DiaryListActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/DiaryListActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="116" width="165" x="974" y="1903"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="uk.ac.qub.mindyourmind.activities.DiaryEditActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/DiaryEditActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="152" width="165" x="769" y="1903"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="uk.ac.qub.mindyourmind.fragments.DiaryEditFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/DiaryEditFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="602" width="322" x="1888" y="1903"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="uk.ac.qub.mindyourmind.fragments.DiaryListFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/DiaryListFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="278" width="322" x="1526" y="1903"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="uk.ac.qub.mindyourmind.providers.MindYourMindProvider" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/providers/MindYourMindProvider.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="638" width="273" x="2612" y="1903"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="uk.ac.qub.mindyourmind.database.DiaryEntryTable" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/database/DiaryEntryTable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="224" width="285" x="649" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="uk.ac.qub.mindyourmind.database.DBHelper" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/database/DBHelper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="206" width="244" x="355" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="uk.ac.qub.mindyourmind.database.RatingsTable" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/database/RatingsTable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="224" width="253" x="62" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="9" language="java" name="uk.ac.qub.mindyourmind.interfaces.OnEditFinished" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/interfaces/OnEditFinished.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="171" x="769" y="2581"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="10" language="java" name="uk.ac.qub.mindyourmind.interfaces.OnEditEntry" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/interfaces/OnEditEntry.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="171" x="980" y="2581"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="11" language="java" name="uk.ac.qub.mindyourmind.activities.SlidersActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/SlidersActivity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="134" width="165" x="564" y="1903"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="uk.ac.qub.mindyourmind.adapters.GridViewImageAdapter" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/adapters/GridViewImageAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="224" width="307" x="1179" y="1903"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="uk.ac.qub.mindyourmind.adapters.TaskListAdapter" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/adapters/TaskListAdapter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="278" width="293" x="1526" y="2581"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="uk.ac.qub.mindyourmind.adapters.TaskListAdapter.ViewHolder" 
+    project="MindyourMind" file="/MindyourMind/src/uk/ac/qub/mindyourmind/adapters/TaskListAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="152" width="167" x="1526" y="2899"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="uk.ac.qub.mindyourmind.fragments.SlidersFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/SlidersFragment.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="512" width="322" x="2250" y="1903"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="16" language="java" name="uk.ac.qub.mindyourmind.interfaces.OnRatingsFinsihed" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/interfaces/OnRatingsFinsihed.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="80" width="171" x="558" y="2581"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="17" language="java" name="android.widget.BaseAdapter" project="MindyourMind" 
+    file="/Users/Adrian/android-sdks/platforms/android-23/android.jar" binary="true" corner="BOTTOM_RIGHT">    
+    <position height="278" width="303" x="1179" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="android.app.Fragment" project="MindyourMind" 
+    file="/Users/Adrian/android-sdks/platforms/android-23/android.jar" binary="true" corner="BOTTOM_RIGHT">    
+    <position height="1826" width="383" x="1888" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="android.support.v7.app.ActionBarActivity" project="MindyourMind" 
+    file="/Users/Adrian/android-sdks/extras/android/support/v7/appcompat/libs/android-support-v7-appcompat.jar" 
+    binary="true" corner="BOTTOM_RIGHT">    
+    <position height="80" width="144" x="974" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="android.content.ContentProvider" project="MindyourMind" 
+    file="/Users/Adrian/android-sdks/platforms/android-23/android.jar" binary="true" corner="BOTTOM_RIGHT">    
+    <position height="728" width="455" x="2430" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="21">    
+    <end type="SOURCE" refId="7" navigable="false" variant="ASSOCIATION">      
+      <attribute id="22" name="instance"/>      
+      <multiplicity id="23" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="24">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <nesting id="25">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="14"/>  
+  </nesting>  
+  <generalization id="26">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <realization id="28">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <generalization id="29">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <generalization id="30">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <realization id="31">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="16"/>  
+  </realization>  
+  <generalization id="32">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <association id="33">    
+    <end type="SOURCE" refId="4" navigable="false" variant="ASSOCIATION">      
+      <attribute id="34" name="adapter"/>      
+      <multiplicity id="35" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="36">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <generalization id="37">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="38">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

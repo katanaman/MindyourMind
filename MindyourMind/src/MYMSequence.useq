@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.8" icons="true">  
+  <object id="1" language="java" name="android.widget.BaseAdapter" project="MindyourMind" 
+    file="/Users/Adrian/android-sdks/platforms/android-23/android.jar" binary="true" label="baseAdapter" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="235" y="0"/>  
+  </object>  
+  <object id="2" language="java" name="android.app.Fragment" project="MindyourMind" 
+    file="/Users/Adrian/android-sdks/platforms/android-23/android.jar" binary="true" label="fragment" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="374" y="0"/>  
+  </object>  
+  <object id="3" language="java" name="android.content.ContentProvider" project="MindyourMind" 
+    file="/Users/Adrian/android-sdks/platforms/android-23/android.jar" binary="true" label="contentProvider" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="380" y="0"/>  
+  </object>
+</sequence-diagram>

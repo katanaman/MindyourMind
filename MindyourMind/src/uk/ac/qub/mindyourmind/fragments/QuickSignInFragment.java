@@ -41,9 +41,10 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 	EditText passcode;
 	String userCode;
 	String email;
-	long userId;
+	long userID;
 	int correctPasscode;
 	static QuickSignInFragment fragment;
+
 	
 	/**
 	 * get instance method with bundle args containing the last logged in userId
@@ -70,8 +71,8 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 		
 		Bundle arguments = getArguments();
 		if(arguments !=null){
-			userId = arguments.getLong(LoginSignUpActivity.EXTRA_USERID, 0L);
-			Log.d(DEFAULT_FRAGMNET_TAG, "userId returned = " + userId);
+			userID = arguments.getLong(LoginSignUpActivity.EXTRA_USERID, 0L);
+			Log.d(DEFAULT_FRAGMNET_TAG, "userId returned = " + userID);
 		}
 		getLoaderManager().initLoader(0, null, this);
 	}
@@ -96,7 +97,7 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 				//get shared preferences manager
 				SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 				SharedPreferences.Editor editor = prefs.edit();
-				editor.remove(getResources().getString(R.string.pref_current_user));
+				editor.putLong(getResources().getString(R.string.pref_current_user), 0L);
 				editor.commit();
 				((OnLogin)getActivity()).goToLogin();
 			}
@@ -126,7 +127,7 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 		if (passcode.getText().toString().equals(""+correctPasscode)){
 			return true;	
 		} else {
-			Toast.makeText(getActivity(), "Incorrect passcode", Toast.LENGTH_SHORT);
+			Toast.makeText(getActivity(), "Incorrect passcode", Toast.LENGTH_SHORT).show();
 			passcode.setText("");
 			return false;
 		}
@@ -135,7 +136,7 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		
-		Uri Uri = ContentUris.withAppendedId(MindYourMindProvider.USER_URI, userId);
+		Uri Uri = ContentUris.withAppendedId(MindYourMindProvider.USER_URI, userID);
 		Log.d(DEFAULT_FRAGMNET_TAG, "onCreateLoader called, id: " + Uri);
 		return new CursorLoader(getActivity(),Uri,null,null,null,null);
 		

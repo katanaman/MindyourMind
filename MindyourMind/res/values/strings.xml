@@ -87,5 +87,8 @@
 	<string name="skip">Skip</string>
 	<string name="sliders_satisfied_text">How satisfied are you with your day?</string>
 	<string name="sliders_happiness_text">How happy are you with your day?</string>
+	<string name="reset_password"><u>Reset Password</u></string>
+	<string name="forgot_your_password_q">Forgot your password?</string>
+	<string name="personal_details">Personal details</string>
     
 </resources>

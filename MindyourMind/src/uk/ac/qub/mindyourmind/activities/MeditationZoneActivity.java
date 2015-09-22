@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import uk.ac.qub.mindyourmind.interfaces.OnEditTask;
+import uk.ac.qub.mindyourmind.interfaces.OnEditEntry;
 import uk.ac.qub.mindyourmind.interfaces.OnPlayVideo;
 import uk.ac.qub.mindyourmind.R;
 

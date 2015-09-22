@@ -37,7 +37,7 @@ public class SignUpActivity extends ActionBarActivity implements OnAuthenticated
 	@Override
 	public void goToMainMenu() {
 		// open the main menu
-		startActivity(new Intent(this, MainMenuActivityTemp.class));
+		startActivity(new Intent(this, MainMenuActivity.class));
 	}
 
 	

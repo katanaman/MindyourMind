@@ -10,9 +10,11 @@ import android.app.Fragment;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,22 +28,31 @@ import android.widget.TextView;
 import android.widget.Toast;
 import uk.ac.qub.mindyourmind.R;
 import uk.ac.qub.mindyourmind.adapters.CalendarViewAdapter;
-import uk.ac.qub.mindyourmind.providers.TaskProvider;
+import uk.ac.qub.mindyourmind.database.DiaryEntryTable;
+import uk.ac.qub.mindyourmind.providers.MindYourMindProvider;
 
-
+/**
+ * Calendar view fragment based off a tutorial at 
+ * http://droidwalk.blogspot.in/2012/11/android-calendar-sample.html#more
+ * @author Adrian, rajeesh
+ */
 public class CalendarViewFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 	
-	public static final String DEFAULT_FRAGMNET_TAG = "calendarViewFragment";
+	public static final String DEFAULT_FRAGMNET_TAG = "calendarViewFragment"; //debug tag
 	
 	
 	public GregorianCalendar month, itemmonth;// calendar instances.
-	
 	public CalendarViewAdapter adapter;// adapter instance
 	public Handler handler;// for grabbing some event values for showing the dot marker.
 	public ArrayList<String> items; // container to store calendar items which
 	                                // needs showing the event marker
-	//public Cursor c;
+	SharedPreferences prefs; // shared preferences to get userID
+	long userID; //userID
 
+	/**
+	 * method returning new instance of CalendarViewFragment
+	 * @return
+	 */
 	public static CalendarViewFragment newInstance() {
 		
 		CalendarViewFragment fragment = new CalendarViewFragment();
@@ -57,7 +68,8 @@ public class CalendarViewFragment extends Fragment implements LoaderManager.Load
         items = new ArrayList<String>();
         adapter = new CalendarViewAdapter(getActivity(), month);
         
-        
+        prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+    	userID = prefs.getLong(getResources().getString(R.string.pref_current_user), 0L);
        // getLoaderManager().initLoader(0, null, this);
     }     
 
@@ -201,14 +213,26 @@ public class CalendarViewFragment extends Fragment implements LoaderManager.Load
     
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-		return new CursorLoader(getActivity(), TaskProvider.CONTENT_URI, null, null, null, null);
+		String selection = DiaryEntryTable.COLUMN_DIARY_ENTRY_USER_ID + "=?";
+	    String[] selectionArgs = {String.valueOf(userID)};
+		return new CursorLoader(getActivity(), MindYourMindProvider.DIARY_URI, null, selection, selectionArgs, null);
 	}
 
 	@Override
 	public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
 		Log.d(DEFAULT_FRAGMNET_TAG, data.toString());
-		//adapter.swapCursor(data);
-		adapter.notifyDataSetChanged();
+		int timeStampColumnIndex = data.getColumnIndex(DiaryEntryTable.COLUMN_DIARY_ENTRY_TIMESTAMP);
+		if(data!=null){
+			items.clear();
+			data.moveToFirst();
+			while (!data.isAfterLast()) {
+				DateFormat df = new SimpleDateFormat("yyyy-MM-dd",Locale.UK);
+				Date entryDate = new Date(data.getLong(timeStampColumnIndex));
+				Log.d(DEFAULT_FRAGMNET_TAG, df.format(entryDate));
+			}
+		}
+		adapter.setItems(items);
+        adapter.notifyDataSetChanged();
 	}
 
 	@Override
@@ -217,3 +241,39 @@ public class CalendarViewFragment extends Fragment implements LoaderManager.Load
 		
 	}
 }
+/*
+    @Override
+	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+		String selection = DiaryEntryTable.COLUMN_DIARY_ENTRY_USER_ID + "=?";
+	    String[] selectionArgs = {String.valueOf(userID)};
+		return new CursorLoader(getActivity(), MindYourMindProvider.DIARY_URI, null, selection, selectionArgs, null);
+	}
+
+	@Override
+	public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+		Log.d(DEFAULT_FRAGMNET_TAG, data.toString());
+		//adapter.swapCursor(data);
+		adapter.notifyDataSetChanged();
+		
+		int entryIDColumnIndex = data.getColumnIndex(DiaryEntryTable.COLUMN_DIARY_ENTRY_ID);
+		int timeStampColumnIndex = data.getColumnIndex(DiaryEntryTable.COLUMN_DIARY_ENTRY_TIMESTAMP);
+		
+		if(data!=null){
+			entryDates.clear();
+			data.moveToFirst();
+			while (!data.isAfterLast()) {
+				DateFormat df = new SimpleDateFormat("yyyy-MM-dd",Locale.UK);
+				Date entryDate = new Date(data.getLong(timeStampColumnIndex));
+				entryDates.add(df.format(entryDate));
+			}
+		}
+		adapter.setItems(entryDates);
+        adapter.notifyDataSetChanged();
+	}
+
+	@Override
+	public void onLoaderReset(Loader<Cursor> loader) {
+		//adapter.swapCursor(null);
+		
+	}
+}*/

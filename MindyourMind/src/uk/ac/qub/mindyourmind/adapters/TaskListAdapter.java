@@ -17,9 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import uk.ac.qub.mindyourmind.R;
 import uk.ac.qub.mindyourmind.database.DiaryEntryTable;
-import uk.ac.qub.mindyourmind.interfaces.OnEditTask;
+import uk.ac.qub.mindyourmind.interfaces.OnEditEntry;
 import uk.ac.qub.mindyourmind.providers.MindYourMindProvider;
-import uk.ac.qub.mindyourmind.providers.TaskProvider;
 
 
 public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHolder> {
@@ -67,7 +66,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
 		viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				((OnEditTask) context).editTask(id);
+				((OnEditEntry) context).editTask(id);
 			}
 		});
 		

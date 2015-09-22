@@ -17,9 +17,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import uk.ac.qub.mindyourmind.R;
-import uk.ac.qub.mindyourmind.interfaces.OnEditTask;
+import uk.ac.qub.mindyourmind.interfaces.OnEditEntry;
 import uk.ac.qub.mindyourmind.interfaces.OnPlayVideo;
-import uk.ac.qub.mindyourmind.providers.TaskProvider;
 
 public class MeditationZoneAdapter extends RecyclerView.Adapter<MeditationZoneAdapter.ViewHolder> {
 
@@ -33,17 +32,6 @@ public class MeditationZoneAdapter extends RecyclerView.Adapter<MeditationZoneAd
 	int notesColumnIndex;
 	int idColumnIndex;
 	
-	public void swapCursor(Cursor c) {
-		cursor = c;
-		if (cursor!=null){
-			cursor.moveToFirst();
-			titleColumnIndex = cursor.getColumnIndex(TaskProvider.COLUMN_TITLE);
-			notesColumnIndex = cursor.getColumnIndex(TaskProvider.COLUMN_NOTES);
-			idColumnIndex = cursor.getColumnIndex(TaskProvider.COLUMN_TASKID);
-			
-		}
-		notifyDataSetChanged();
-	}
 	
 	
 	@Override
@@ -122,7 +110,6 @@ public class MeditationZoneAdapter extends RecyclerView.Adapter<MeditationZoneAd
 	
 	void deleteTask(Context context, long id){
 		Log.d("TaskListAdapter", "called deleteTask");
-		context.getContentResolver().delete(ContentUris.withAppendedId(TaskProvider.CONTENT_URI, id), null, null);
 	}
 	
 	static class ViewHolder extends RecyclerView.ViewHolder {

@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-    <!--     android:background="@drawable/background" -->
+    
 
     <RelativeLayout
         android:id="@+id/header"
@@ -23,6 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:padding="6dp"
                 android:background="@drawable/arrow_left" />
         </RelativeLayout>
 
@@ -47,6 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:padding="6dp"
                 android:background="@drawable/arrow_right" />
         </RelativeLayout>
     </RelativeLayout>

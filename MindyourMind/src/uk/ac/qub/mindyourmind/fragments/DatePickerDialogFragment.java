@@ -37,7 +37,7 @@ public class DatePickerDialogFragment extends DialogFragment {
 	        // so that when the user chooses a new date in our datepicker
 	        // dialog, the dialog will call back into the edit fragment to
 	        // set the new date.
-	        OnDateSetListener callback = (OnDateSetListener)getFragmentManager().findFragmentByTag(TaskEditFragment.DEFAULT_FRAGMNET_TAG);
+	        OnDateSetListener callback = (OnDateSetListener)getFragmentManager().findFragmentByTag(DiaryEditFragment.DEFAULT_FRAGMNET_TAG);
 
 	        // Construct a new DatePicker dialog that will be hosted by
 	        // this fragment. Set its Year, Month, and Day to the values

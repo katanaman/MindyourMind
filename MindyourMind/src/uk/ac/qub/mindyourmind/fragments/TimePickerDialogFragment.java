@@ -33,7 +33,7 @@ public class TimePickerDialogFragment extends DialogFragment{
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 	
-		OnTimeSetListener callBack = (OnTimeSetListener) getFragmentManager().findFragmentByTag(TaskEditFragment.DEFAULT_FRAGMNET_TAG);
+		OnTimeSetListener callBack = (OnTimeSetListener) getFragmentManager().findFragmentByTag(DiaryEditFragment.DEFAULT_FRAGMNET_TAG);
 		
 		Bundle args = getArguments();
 		

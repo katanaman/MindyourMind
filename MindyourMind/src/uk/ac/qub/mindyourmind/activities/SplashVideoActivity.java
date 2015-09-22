@@ -17,6 +17,7 @@ import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 import uk.ac.qub.mindyourmind.R;
+import uk.ac.qub.mindyourmind.listeners.InternetConnectionChangedListner;
 
 public class SplashVideoActivity extends Activity {
 
@@ -33,6 +34,8 @@ public class SplashVideoActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
     	super.onCreate(savedInstanceState);
     	Log.d(TAG, "onCreate called");
+    	
+    	InternetConnectionChangedListner.checkConnection(getApplicationContext());
     	
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		playIntro = prefs.getBoolean(getResources().getString(R.string.pref_play_intro_key), true);

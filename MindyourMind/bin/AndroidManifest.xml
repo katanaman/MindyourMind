@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="uk.ac.qub.mindyourmind"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0" 
+    android:largeHeap="true">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -17,10 +18,6 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         
-        <provider 
-            android:name=".providers.TaskProvider"
-            android:authorities="uk.ac.qub.mindyourmind.providers.TaskProvider"
-            android:exported="false"/>
         <provider 
             android:name=".providers.MindYourMindProvider"
             android:authorities="uk.ac.qub.mindyourmind.providers.MindYourMindProvider"
@@ -45,7 +42,7 @@
         </activity>
         
         <activity
-            android:name=".activities.MainMenuActivityTemp"
+            android:name=".activities.MainMenuActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,7 +59,7 @@
         </activity>
         
         <activity
-            android:name=".activities.TaskListActivity"
+            android:name=".activities.DiaryListActivity"
             android:label="Diary" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -72,12 +69,12 @@
         </activity>
         <activity
             android:theme="@style/AppTheme.TransparentActionBar"
-            android:name=".activities.TaskEditActivity"
+            android:name=".activities.DiaryEditActivity"
             android:label=""
-            android:parentActivityName=".TaskListActivity" >
+            android:parentActivityName=".DiaryListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.tasks.TaskListActivity" />
+                android:value="uk.ac.qub.mindyourmind.activities.DiaryListActivity" />
         </activity>
         
         <activity
@@ -124,7 +121,7 @@
         </activity>
         <activity
             android:name=".activities.SplashVideoActivity"
-            android:label="splash" 
+            android:label="MindYourMind" 
     		android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
     		android:noHistory="true">
             <intent-filter>
@@ -134,6 +131,15 @@
         </activity>
         <activity
             android:name=".activities.SlidersActivity"
+            android:label=""
+    		android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.PersonalDetailsActivity"
             android:label=""
     		android:noHistory="true">
             <intent-filter>

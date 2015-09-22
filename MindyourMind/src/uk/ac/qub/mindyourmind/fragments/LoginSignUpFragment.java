@@ -3,20 +3,23 @@ package uk.ac.qub.mindyourmind.fragments;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.LoaderManager;
 import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.CursorLoader;
+import android.content.DialogInterface;
 import android.content.Loader;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -26,11 +29,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import uk.ac.qub.mindyourmind.R;
+import uk.ac.qub.mindyourmind.activities.ResetPasswordActivity;
 import uk.ac.qub.mindyourmind.database.UserTable;
 import uk.ac.qub.mindyourmind.interfaces.OnLoginClicked;
 import uk.ac.qub.mindyourmind.interfaces.OnSignUpClicked;
 import uk.ac.qub.mindyourmind.providers.MindYourMindProvider;
-import uk.ac.qub.mindyourmind.providers.TaskProvider;
+
 
 public class LoginSignUpFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
 
@@ -39,13 +43,15 @@ public class LoginSignUpFragment extends Fragment implements LoaderManager.Loade
 	public static final String DEFAULT_FRAGMNET_TAG = "loginSignUpFragment";
 	
 	Button login;
-	TextView signUp;
+	TextView signUp, forgotPassword;
 	private View view;
 	EditText email, password;
-	Map<String, String> emailToPassword;
+	HashMap<String, String> emailToPassword;
 	SharedPreferences prefs;
 	ProgressBar loadingSpinner;
 	Cursor userDetails;
+	int attempts;
+	
 	private static LoginSignUpFragment instance;
 	
 	public static LoginSignUpFragment newInstance() {
@@ -60,14 +66,19 @@ public class LoginSignUpFragment extends Fragment implements LoaderManager.Loade
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		setHasOptionsMenu(false);
-		prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 		emailToPassword = new HashMap<String, String>();
 		getLoaderManager().initLoader(0, null, this);
+		
+		if(savedInstanceState!=null){
+		emailToPassword = (HashMap<String, String>) savedInstanceState.getSerializable("local_data");
+		}
 	}
 	
 	@Override
@@ -79,6 +90,7 @@ public class LoginSignUpFragment extends Fragment implements LoaderManager.Loade
 		email = (EditText) view.findViewById(R.id.editTextName);
 		password = (EditText) view.findViewById(R.id.editTextPassword);
 		loadingSpinner = (ProgressBar) view.findViewById(R.id.progressBar);
+		forgotPassword = (TextView) view.findViewById(R.id.text_view_forgot_password);
 		
 		loadingSpinner.setVisibility(View.GONE);
 		
@@ -105,6 +117,25 @@ public class LoginSignUpFragment extends Fragment implements LoaderManager.Loade
 				((OnSignUpClicked) getActivity()).openSignUpActivity(view);
 			}
 		});
+		
+		
+		forgotPassword.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				String enteredEmail = email.getText().toString();
+				if(emailToPassword.size()<1){
+					showMessage("No regestered users on this device");
+				} else {
+					if(emailToPassword.containsKey(enteredEmail)){
+						showPasswordReset();
+					} else {
+						showMessage("Email address not regestered on this device");
+					}
+				}
+			}
+		});		
+		
 		return view;
 	}
 	
@@ -134,11 +165,56 @@ public class LoginSignUpFragment extends Fragment implements LoaderManager.Loade
 		Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
 	}
 	
-	@Override
-	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-		return new CursorLoader(getActivity(),MindYourMindProvider.USER_URI,null,null,null,null);
-	}
+	private void showPasswordReset(){
+		AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
 
+		alert.setTitle("Password reset?")
+		.setMessage("Send reset message to :\n" +email.getText().toString())
+		.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				
+					resetPassword();
+				
+			}
+		});
+
+		alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+				dialog.cancel();
+			}
+		});
+		alert.show();
+	}
+	
+	public void resetPassword(){
+		String emailAddress = email.getText().toString();
+		ResetPasswordActivity reset = new ResetPasswordActivity(getActivity(), emailAddress);
+		String newPassword = reset.sendPasswordReset();
+		emailToPassword.put(emailAddress, newPassword);
+		AsyncTask<String, Void, Void> async = new saveInBackground(newPassword, getIDFromEmail(emailAddress));
+		async.execute("");
+	}
+	
+	public void saveNewPassword(String newPassword, long userID){
+		ContentValues UserValues = new ContentValues();
+		UserValues.put(UserTable.COLUMN_USER_PASSWORD, newPassword);
+		Uri uri = ContentUris.withAppendedId(MindYourMindProvider.USER_URI, userID);
+		int count = getActivity().getContentResolver().update(uri, UserValues, null, null);
+		//throw error if more than one password is changed
+		if(count != 1){
+			throw new IllegalStateException("Unable to update password");
+		}
+	}
+	
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putSerializable("local_data", emailToPassword);
+	}
+	
+	
 	private void setCurrentUser(){
 		Editor editor = prefs.edit();
 		editor.putLong(getResources().getString(R.string.pref_current_user), getIDFromEmail(email.getText().toString()));
@@ -156,16 +232,21 @@ public class LoginSignUpFragment extends Fragment implements LoaderManager.Loade
 	}
 	
 	@Override
+	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+		return new CursorLoader(getActivity(),MindYourMindProvider.USER_URI,null,null,null,null);
+	}
+
+	@Override
 	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
 		Log.d(DEFAULT_FRAGMNET_TAG, "Loader finshed");
 		userDetails = cursor;
-		
+
 		if(cursor!=null){
 			emailToPassword.clear();
 			cursor.moveToFirst();
 			while (!cursor.isAfterLast()) {	
 				emailToPassword.put(cursor.getString(cursor.getColumnIndexOrThrow(UserTable.COLUMN_USER_EMAIL)), cursor.getString(cursor.getColumnIndexOrThrow(UserTable.COLUMN_USER_PASSWORD)));
-			    cursor.moveToNext();
+				cursor.moveToNext();
 			}
 		}
 	} 
@@ -173,6 +254,27 @@ public class LoginSignUpFragment extends Fragment implements LoaderManager.Loade
 	@Override
 	public void onLoaderReset(Loader<Cursor> loader) {
 		// nothing to reset
-		
 	}
+
+	class saveInBackground extends AsyncTask<String, Void, Void> {
+		String newPassword; 
+		long userID;
+		public saveInBackground(String newPassword, long userID) {
+			this.newPassword=newPassword;
+			this.userID=userID;
+		}
+		@Override
+		protected Void doInBackground(String... params) { 
+			ContentValues UserValues = new ContentValues();
+			UserValues.put(UserTable.COLUMN_USER_PASSWORD, newPassword);
+			Uri uri = ContentUris.withAppendedId(MindYourMindProvider.USER_URI, userID);
+			int count = getActivity().getContentResolver().update(uri, UserValues, null, null);
+			//throw error if more than one password is changed
+			if(count != 1){
+				Log.e(DEFAULT_FRAGMNET_TAG,"Unable to update password");
+			}
+			return null;
+		}
+	} 
 }
+

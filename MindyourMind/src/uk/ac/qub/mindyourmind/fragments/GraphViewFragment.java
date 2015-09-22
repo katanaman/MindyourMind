@@ -124,7 +124,7 @@ public class GraphViewFragment extends Fragment implements LoaderManager.LoaderC
         DashPathEffect dashFx = new DashPathEffect(new float[] {PixelUtils.dpToPix(3), PixelUtils.dpToPix(3)}, 0);
         plot.getGraphWidget().getDomainGridLinePaint().setPathEffect(dashFx);
         plot.getGraphWidget().getRangeGridLinePaint().setPathEffect(dashFx);
-        */
+        
         view.setOnTouchListener(new View.OnTouchListener() {
 			
         	@Override
@@ -200,7 +200,7 @@ public class GraphViewFragment extends Fragment implements LoaderManager.LoaderC
             }
          
             private void scroll(float pan) {
-                float domainSpan = maxXY.x    - minXY.x;
+                float domainSpan = maxXY.x - minXY.x;
                 float step = domainSpan / plot.getWidth();
                 float offset = pan * step;
                 minXY.x+= offset;
@@ -212,7 +212,7 @@ public class GraphViewFragment extends Fragment implements LoaderManager.LoaderC
                 float y = event.getY(0) - event.getY(1);
                 return (float)Math.sqrt(x * x + y * y);
             }
-		});
+		});*/
         
         return view;
  
@@ -302,14 +302,12 @@ public class GraphViewFragment extends Fragment implements LoaderManager.LoaderC
 					Log.d(DEFAULT_FRAGMENT_TAG, "value :"+data.getInt(valueColumnIndex));
 					Log.d(DEFAULT_FRAGMENT_TAG, "timeStamp :"+data.getLong(timeStampColumnIndex));
 				}
-				
 			    data.moveToNext();
 			}
 		}
 		Log.d(DEFAULT_FRAGMENT_TAG, "number of sliders :"+sliderTypes.size());
 		clearPlot();
 		LineAndPointFormatter[] lineColours = getLineColours();
-		
 		for(int i=0; i<sliderTypes.size();i++){
 			String type = (String)sliderTypes.toArray()[i];
 			drawLine(values.get(type), timeStamp.get(type), type, lineColours[i]);

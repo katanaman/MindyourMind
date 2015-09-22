@@ -1,17 +1,25 @@
 package uk.ac.qub.mindyourmind.fragments;
 
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
+import android.R.color;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.CursorLoader;
+import android.content.Loader;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.database.Cursor;
 import android.net.Uri;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.app.LoaderManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -30,9 +38,11 @@ import uk.ac.qub.mindyourmind.database.UserUniversityTable;
 import uk.ac.qub.mindyourmind.interfaces.OnPersonalDetailsFinished;
 import uk.ac.qub.mindyourmind.providers.MindYourMindProvider;
 
-public class PersonalDetailsFragment extends Fragment implements OnDateSetListener {
+public class PersonalDetailsFragment extends Fragment implements OnDateSetListener{
 	
 	public static final String DEFAULT_FRAGMNET_TAG = "personalDetailsFragment";
+	
+	private final int MINIMUM_AGE_OF_STUDENT = 18;
 	
 	EditText ETName, ETPassword, ETConfirmPassword, ETPasscode, ETConfirmPasscode, ETDateOfBirth, ETGender;
 	Calendar dateOfBirth;
@@ -52,6 +62,14 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
 	static final String USER_CONFIRM_PASSWORD = "user_confirm_password";
 	static final String USER_CONFIRM_PASSCODE = "user_confirm_password";
 	static final String USER_DATE_OF_BIRTH = "user_date_of_birth";
+	
+	public static PersonalDetailsFragment UpdateDetails(long userId) {
+		PersonalDetailsFragment fragment = new PersonalDetailsFragment();
+		Bundle args = new Bundle();
+		args.putLong(UserTable.COLUMN_USER_ID, userId);
+		fragment.setArguments(args);
+		return fragment;
+	}
 	
 	public static PersonalDetailsFragment newInstance(long userId, String university, String degreePathway, String universityEmail, int yearOfStudy) {
 		
@@ -91,7 +109,6 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
 		if (dateOfBirth == null){
 			dateOfBirth=Calendar.getInstance();
 		}
-		
 	}
 	
 	@Override
@@ -135,6 +152,14 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
 			}
 		});
 		
+		if(university.length()==0){
+			ETName.setText("Change password");
+			ETName.setEnabled(false);
+			ETName.setTextColor(color.black);
+			ETGender.setVisibility(View.GONE);
+			ETDateOfBirth.setVisibility(View.GONE);
+		}
+		
 		if(savedInstanceState != null){
 			ETName.setText(savedInstanceState.getString(USER_NAME));
 			ETPassword.setText(savedInstanceState.getString(USER_PASSWORD));
@@ -162,6 +187,22 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
 			Toast.makeText(getActivity(), "Passcodes do not match", Toast.LENGTH_SHORT).show();
 			return false;
 		}
+		
+		if(ETDateOfBirth.getText().toString().isEmpty()){
+			SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
+			String dateInString = "07/06/2013";
+
+			try {
+				Date date = formatter.parse(dateInString);
+				System.out.println(date);
+				System.out.println(formatter.format(date));
+
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
 		
 		return isCorrect;
 	}
@@ -209,10 +250,17 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
 
 	@Override
 	public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+		
+		int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+		if(year <= currentYear-MINIMUM_AGE_OF_STUDENT){
 		dateOfBirth.set(Calendar.YEAR, year);
 		dateOfBirth.set(Calendar.MONTH, monthOfYear);
 		dateOfBirth.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 		updateDateEditText();
+		} else {
+			String message = "You must me at least "+MINIMUM_AGE_OF_STUDENT+" to apply";
+			Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+		}
 	}
 	
 	private void updateDateEditText() {
@@ -239,10 +287,8 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
         newFragment.show(ft, SignUpDatePickerDialogFragment.DATE_PICKER_FRAGMENT);
     }
     
-    private void save(){
-    	
-    	setCurrentUser();
-    	
+    private void save(){    	
+
 		// put all required values into a contentValues object
 		String name = ETName.getText().toString();
 		String password = ETPassword.getText().toString();
@@ -250,31 +296,45 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
 		String gender = ETGender.getText().toString();
 		long dob = dateOfBirth.getTimeInMillis();
 
-		ContentValues UserValues = new ContentValues();
-		UserValues.put(UserTable.COLUMN_USER_ID, userId);
-		UserValues.put(UserTable.COLUMN_USER_NAME, name);
-		UserValues.put(UserTable.COLUMN_USER_PASSWORD, password);
-		UserValues.put(UserTable.COLUMN_USER_CODE, passcode);
-		UserValues.put(UserTable.COLUMN_USER_GENDER, gender);
-		UserValues.put(UserTable.COLUMN_USER_EMAIL, universityEmail);
-		UserValues.put(UserTable.COLUMN_USER_DATE_OF_BIRTH, dob);
-		
-		ContentValues UniversityValues = new ContentValues();
-		UniversityValues.put(UserUniversityTable.COLUMN_USER_UNIVERSITY_NAME, university);
-		UniversityValues.put(UserUniversityTable.COLUMN_USER_UNIVERSITY_FACULTY, degreePathway);
-		UniversityValues.put(UserUniversityTable.COLUMN_USER_UNIVERSITY_YEAR_OF_STUDY, yearOfStudy);
-		UniversityValues.put(UserUniversityTable.COLUMN_USER_UNIVERSITY_USER_ID, userId);
-		
-		Uri UserUri = getActivity().getContentResolver().insert(MindYourMindProvider.USER_URI, UserValues);
-		Uri UniUri = getActivity().getContentResolver().insert(MindYourMindProvider.EDUCATION_URI, UniversityValues);
-		
-		Log.d(DEFAULT_FRAGMNET_TAG, "user URI : "+ UserUri.toString());
-		Log.d(DEFAULT_FRAGMNET_TAG, "university URI : "+ UniUri.toString());
-		
-		//Uri uri = ContentUris.withAppendedId(MindYourMindProvider.USER_URI, userId);
-		//int count = getActivity().getContentResolver().update(uri, values, null, null);
-		//Log.d(DEFAULT_FRAGMNET_TAG, "number of rows affected : "+count);
-		Toast.makeText(getActivity(), "Saved", Toast.LENGTH_SHORT).show();
+    	if(university.length()!=0){
+        	setCurrentUser();
+        		
+    		ContentValues UserValues = new ContentValues();
+    		UserValues.put(UserTable.COLUMN_USER_ID, userId);
+    		UserValues.put(UserTable.COLUMN_USER_NAME, name);
+    		UserValues.put(UserTable.COLUMN_USER_PASSWORD, password);
+    		UserValues.put(UserTable.COLUMN_USER_CODE, passcode);
+    		UserValues.put(UserTable.COLUMN_USER_GENDER, gender);
+    		UserValues.put(UserTable.COLUMN_USER_EMAIL, universityEmail);
+    		UserValues.put(UserTable.COLUMN_USER_DATE_OF_BIRTH, dob);
+
+    		ContentValues UniversityValues = new ContentValues();
+    		UniversityValues.put(UserUniversityTable.COLUMN_USER_UNIVERSITY_NAME, university);
+    		UniversityValues.put(UserUniversityTable.COLUMN_USER_UNIVERSITY_FACULTY, degreePathway);
+    		UniversityValues.put(UserUniversityTable.COLUMN_USER_UNIVERSITY_YEAR_OF_STUDY, yearOfStudy);
+    		UniversityValues.put(UserUniversityTable.COLUMN_USER_UNIVERSITY_USER_ID, userId);
+
+    		Uri UserUri = getActivity().getContentResolver().insert(MindYourMindProvider.USER_URI, UserValues);
+    		Uri UniUri = getActivity().getContentResolver().insert(MindYourMindProvider.EDUCATION_URI, UniversityValues);
+
+    		Log.d(DEFAULT_FRAGMNET_TAG, "user URI : "+ UserUri.toString());
+    		Log.d(DEFAULT_FRAGMNET_TAG, "university URI : "+ UniUri.toString());
+    	
+    	} else {
+    		
+    		ContentValues UserValues = new ContentValues();
+    		UserValues.put(UserTable.COLUMN_USER_NAME, name);
+    		UserValues.put(UserTable.COLUMN_USER_PASSWORD, password);
+    		UserValues.put(UserTable.COLUMN_USER_CODE, passcode);
+    		UserValues.put(UserTable.COLUMN_USER_GENDER, gender);
+    		UserValues.put(UserTable.COLUMN_USER_EMAIL, universityEmail);
+    		UserValues.put(UserTable.COLUMN_USER_DATE_OF_BIRTH, dob);
+    	
+    	Uri uri = ContentUris.withAppendedId(MindYourMindProvider.USER_URI, userId);
+    	int count = getActivity().getContentResolver().update(uri, UserValues, null, null);
+		Log.d(DEFAULT_FRAGMNET_TAG, "number of rows affected : "+count);
+    	}
+    	Toast.makeText(getActivity(), "Saved", Toast.LENGTH_SHORT).show();
 	}
     
     private void setCurrentUser(){

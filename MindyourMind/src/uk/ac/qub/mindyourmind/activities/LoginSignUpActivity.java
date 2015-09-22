@@ -18,13 +18,17 @@ import uk.ac.qub.mindyourmind.interfaces.OnLoginClicked;
 import uk.ac.qub.mindyourmind.interfaces.OnSignUpClicked;
 import uk.ac.qub.mindyourmind.R;
 import uk.ac.qub.mindyourmind.database.UserTable;
+/**
+ * base activity that deals with current logged in user, password reset, loggin fragment, and quick login fragment 
+ * @author Adrian
+ */
 @SuppressWarnings("deprecation")
 public class LoginSignUpActivity extends ActionBarActivity implements OnLoginClicked, OnSignUpClicked, OnLogin {
 	
-	public static final String TAG ="loginSignUpActivity";
+	public static final String TAG ="loginSignUpActivity"; //debugging tag
 	
 	//static identifier for shared preferences
-	public static final String EXTRA_USERID ="userId";
+	public static final String EXTRA_USERID ="userId"; // constant for userID
 	
 	/**
 	 * on create method using the checking if the user has logged in before
@@ -59,7 +63,7 @@ public class LoginSignUpActivity extends ActionBarActivity implements OnLoginCli
 	@Override
 	public void openMainMenuFragment(View v) {
 		//startActivity(new Intent(this, MainMenuActivity.class));
-		Intent intent = new Intent(this, MainMenuActivityTemp.class);
+		Intent intent = new Intent(this, MainMenuActivity.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK); 
 		startActivity(intent);
 		finish(); 
@@ -73,6 +77,8 @@ public class LoginSignUpActivity extends ActionBarActivity implements OnLoginCli
 
 	@Override
 	public void goToLogin() {
-		getFragmentManager().beginTransaction().replace(R.id.container, LoginSignUpFragment.newInstance()).commit();
+		Intent intent = new Intent(this, LoginSignUpActivity.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+		startActivity(intent);
 	}
 }

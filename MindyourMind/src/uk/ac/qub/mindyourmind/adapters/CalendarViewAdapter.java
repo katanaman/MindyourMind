@@ -19,18 +19,18 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import uk.ac.qub.mindyourmind.R;
-import uk.ac.qub.mindyourmind.providers.TaskProvider;
 
 public class CalendarViewAdapter extends BaseAdapter {
 	private Context mContext;
 
 	public static final String TAG = "calendarViewAdapter";
 	
+	/*
 	Cursor cursor;
 	int titleColumnIndex;
 	int notesColumnIndex;
 	int idColumnIndex;
-	int dateTimeColumnIndex;
+	int dateTimeColumnIndex;*/
 	
 	 
 	 private java.util.Calendar month;
@@ -48,7 +48,7 @@ public class CalendarViewAdapter extends BaseAdapter {
 	 int lastWeekDay;
 	 int leftDays;
 	 int mnthlength;
-	 String itemvalue, curentDateString;
+	 String itemvalue, currentDateString;
 	 DateFormat df;
 
 	 private ArrayList<String> items;
@@ -56,15 +56,15 @@ public class CalendarViewAdapter extends BaseAdapter {
 	 private View previousView;
 
 	 public CalendarViewAdapter(Context c, GregorianCalendar monthCalendar) {
-	  CalendarViewAdapter.dayString = new ArrayList<String>();
-	  month = monthCalendar;
-	  selectedDate = (GregorianCalendar) monthCalendar.clone();
-	  mContext = c;
-	  month.set(GregorianCalendar.DAY_OF_MONTH, 1);
-	  this.items = new ArrayList<String>();
-	  df = new SimpleDateFormat("yyyy-MM-dd", Locale.UK);
-	  curentDateString = df.format(selectedDate.getTime());
-	  refreshDays();
+		  CalendarViewAdapter.dayString = new ArrayList<String>();
+		  month = monthCalendar;
+		  selectedDate = (GregorianCalendar) monthCalendar.clone();
+		  mContext = c;
+		  month.set(GregorianCalendar.DAY_OF_MONTH, 1);
+		  items = new ArrayList<String>();
+		  df = new SimpleDateFormat("yyyy-MM-dd", Locale.UK);
+		  currentDateString = df.format(selectedDate.getTime());
+		  refreshDays();
 	 }
 /*
 	 public void swapCursor(Cursor c) {
@@ -93,9 +93,9 @@ public class CalendarViewAdapter extends BaseAdapter {
 	 */
 	 public void setItems(ArrayList<String> items) {
 		 
-		 for (int i=0;i<items.size();i++ ){
-			 if(items!=null){
-			 items.set(i, 0+ items.get(i));
+		 for (int i=0;i != items.size();i++ ){
+			 if(items.get(i).length() == 1){
+			 items.set(i, "0"+ items.get(i));
 	   }
 	  }
 	  this.items = items;
@@ -126,9 +126,9 @@ public class CalendarViewAdapter extends BaseAdapter {
 	  TextView dayView;
 	  if (convertView == null) { // if it's not recycled, initialize some
 	         // attributes
-	   LayoutInflater vi = (LayoutInflater) mContext
+	   LayoutInflater view = (LayoutInflater) mContext
 	     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	   v = vi.inflate(R.layout.calendar_item, null);
+	   v = view.inflate(R.layout.calendar_item, null);
 
 	  }
 	  dayView = (TextView) v.findViewById(R.id.date);
@@ -151,7 +151,7 @@ public class CalendarViewAdapter extends BaseAdapter {
 	   dayView.setTextColor(Color.BLUE);
 	  }
 
-	  if (dayString.get(position).equals(curentDateString)) {
+	  if (dayString.get(position).equals(currentDateString)) {
 	   setSelected(v);
 	   previousView = v;
 	  } else {

@@ -17,9 +17,8 @@ import android.view.ViewGroup;
 import uk.ac.qub.mindyourmind.activities.PreferencesActivity;
 import uk.ac.qub.mindyourmind.R;
 import uk.ac.qub.mindyourmind.adapters.MeditationZoneAdapter;
-import uk.ac.qub.mindyourmind.providers.TaskProvider;
 import android.app.LoaderManager;
-import uk.ac.qub.mindyourmind.interfaces.OnEditTask;
+import uk.ac.qub.mindyourmind.interfaces.OnEditEntry;
 
 public class MeditationZoneFragment extends Fragment implements  LoaderManager.LoaderCallbacks<Cursor>{
 
@@ -67,7 +66,7 @@ public class MeditationZoneFragment extends Fragment implements  LoaderManager.L
 		
 		switch (item.getItemId()) {
 		case R.id.menu_add :
-			((OnEditTask) getActivity()).editTask(0);
+			((OnEditEntry) getActivity()).editTask(0);
 		return true;
 		case R.id.menu_settings :
 			startActivity(new Intent (getActivity(), PreferencesActivity.class));

@@ -1,0 +1,1137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.8" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" language="java" name="uk.ac.qub.mindyourmind.activities.HappyZoneActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/HappyZoneActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="98" width="165" x="3525" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="uk.ac.qub.mindyourmind.activities.SplashVideoActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/SplashVideoActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="242" width="208" x="11569" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="uk.ac.qub.mindyourmind.activities.VideoPlayerActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/VideoPlayerActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="116" width="165" x="5232" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="uk.ac.qub.mindyourmind.activities.mediaPlayerActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/mediaPlayerActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="80" width="165" x="9207" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="uk.ac.qub.mindyourmind.activities.MeditationZoneActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/MeditationZoneActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="116" width="184" x="15777" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="uk.ac.qub.mindyourmind.activities.CalendarViewActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/CalendarViewActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="98" width="169" x="43" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="uk.ac.qub.mindyourmind.activities.SignUpActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/SignUpActivity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="134" width="249" x="14696" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="uk.ac.qub.mindyourmind.activities.ResetPasswordActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/ResetPasswordActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="224" width="200" x="12203" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="uk.ac.qub.mindyourmind.activities.GuidanceCentreActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/GuidanceCentreActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="278" width="263" x="14308" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="uk.ac.qub.mindyourmind.activities.DiaryEditActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/DiaryEditActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="152" width="165" x="16206" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="uk.ac.qub.mindyourmind.activities.DiaryListActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/DiaryListActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="116" width="165" x="16001" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="uk.ac.qub.mindyourmind.activities.MenuComponent" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/MenuComponent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="260" width="231" x="11071" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="uk.ac.qub.mindyourmind.activities.LoginSignUpActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/LoginSignUpActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="188" width="225" x="21505" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="uk.ac.qub.mindyourmind.activities.PreferencesActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/PreferencesActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="98" width="165" x="950" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" 
+    name="uk.ac.qub.mindyourmind.activities.GuidanceCentreActivity.FragmentStatePageAdapter" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/GuidanceCentreActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="152" width="348" x="14308" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="uk.ac.qub.mindyourmind.activities.GraphViewActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/GraphViewActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="98" width="165" x="4044" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="uk.ac.qub.mindyourmind.activities.MainMenuActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/MainMenuActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="242" width="263" x="10919" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="uk.ac.qub.mindyourmind.activities.SlidersActivity" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/activities/SlidersActivity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="134" width="165" x="13017" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="uk.ac.qub.mindyourmind.adapters.UniversitiesSpinnerAdapter" 
+    project="MindyourMind" file="/MindyourMind/src/uk/ac/qub/mindyourmind/adapters/UniversitiesSpinnerAdapter.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="206" width="274" x="4249" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="uk.ac.qub.mindyourmind.adapters.TaskListAdapter" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/adapters/TaskListAdapter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="278" width="293" x="13225" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="uk.ac.qub.mindyourmind.adapters.CalendarViewAdapter" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/adapters/CalendarViewAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="566" width="306" x="13584" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="uk.ac.qub.mindyourmind.adapters.GridViewImageAdapter" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/adapters/GridViewImageAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="206" width="307" x="11222" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="uk.ac.qub.mindyourmind.adapters.DegreePathwaySpinnerAdapter" 
+    project="MindyourMind" file="/MindyourMind/src/uk/ac/qub/mindyourmind/adapters/DegreePathwaySpinnerAdapter.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="206" width="274" x="3730" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="uk.ac.qub.mindyourmind.adapters.MeditationZoneAdapter" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/adapters/MeditationZoneAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="296" width="293" x="13946" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="uk.ac.qub.mindyourmind.adapters.TaskListAdapter.ViewHolder" 
+    project="MindyourMind" file="/MindyourMind/src/uk/ac/qub/mindyourmind/adapters/TaskListAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="152" width="167" x="13225" y="6883"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="uk.ac.qub.mindyourmind.adapters.MeditationZoneAdapter.ViewHolder" 
+    project="MindyourMind" file="/MindyourMind/src/uk/ac/qub/mindyourmind/adapters/MeditationZoneAdapter.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="152" width="167" x="13946" y="6883"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="uk.ac.qub.mindyourmind.database.RatingsTable" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/database/RatingsTable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="224" width="253" x="1901" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="uk.ac.qub.mindyourmind.database.DiaryEntryTable" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/database/DiaryEntryTable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="224" width="285" x="8882" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="uk.ac.qub.mindyourmind.database.DiaryEntryMediaTable" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/database/DiaryEntryMediaTable.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="188" width="317" x="2770" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="uk.ac.qub.mindyourmind.database.LoginAuditTable" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/database/LoginAuditTable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="224" width="358" x="3127" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="uk.ac.qub.mindyourmind.database.UserTable" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/database/UserTable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="260" width="263" x="2467" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="uk.ac.qub.mindyourmind.database.DBHelper" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/database/DBHelper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="206" width="244" x="8031" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="uk.ac.qub.mindyourmind.database.UserUniversityTable" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/database/UserUniversityTable.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="224" width="348" x="1513" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="uk.ac.qub.mindyourmind.database.UniversityContentRepoTable" 
+    project="MindyourMind" file="/MindyourMind/src/uk/ac/qub/mindyourmind/database/UniversityContentRepoTable.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="206" width="443" x="6841" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="uk.ac.qub.mindyourmind.fragments.SlidersFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/SlidersFragment.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="476" width="322" x="12655" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="uk.ac.qub.mindyourmind.fragments.DatePickerDialogFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/DatePickerDialogFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="188" width="305" x="7686" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="uk.ac.qub.mindyourmind.fragments.SpinnerDialogFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/SpinnerDialogFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="152" width="387" x="15236" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="uk.ac.qub.mindyourmind.fragments.MeditationZoneFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/MeditationZoneFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="242" width="322" x="13946" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="uk.ac.qub.mindyourmind.fragments.TimePickerDialogFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/TimePickerDialogFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="170" width="306" x="8325" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="uk.ac.qub.mindyourmind.fragments.SignUpDatePickerDialogFragment" 
+    project="MindyourMind" file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/SignUpDatePickerDialogFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="188" width="346" x="11817" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="uk.ac.qub.mindyourmind.fragments.PreferencesFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/PreferencesFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="98" width="172" x="12443" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="uk.ac.qub.mindyourmind.fragments.GuidanceCentreFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/GuidanceCentreFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="314" width="322" x="4870" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="uk.ac.qub.mindyourmind.fragments.CalendarViewFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/CalendarViewFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="404" width="322" x="13584" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="44" language="java" name="uk.ac.qub.mindyourmind.fragments.PersonalDetailsFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/PersonalDetailsFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="746" width="390" x="15347" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="45" language="java" name="uk.ac.qub.mindyourmind.fragments.VideoPlayerFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/VideoPlayerFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="206" width="322" x="10557" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="46" language="java" name="uk.ac.qub.mindyourmind.fragments.QuickSignInFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/QuickSignInFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="404" width="322" x="5437" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="47" language="java" name="uk.ac.qub.mindyourmind.fragments.SpinnerDialogFragment.DialogListener" 
+    project="MindyourMind" file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/SpinnerDialogFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="172" x="15236" y="6883"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="48" language="java" name="uk.ac.qub.mindyourmind.fragments.DiaryEditFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/DiaryEditFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="602" width="322" x="7324" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="49" language="java" name="uk.ac.qub.mindyourmind.fragments.GraphViewFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/GraphViewFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="368" width="468" x="6333" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="50" language="java" name="uk.ac.qub.mindyourmind.fragments.DiaryListFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/DiaryListFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="278" width="322" x="13222" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="51" language="java" name="uk.ac.qub.mindyourmind.fragments.AuthenticateFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/AuthenticateFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="620" width="322" x="14985" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="52" language="java" name="uk.ac.qub.mindyourmind.fragments.LoginSignUpFragment" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/fragments/LoginSignUpFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="530" width="322" x="252" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="53" language="java" name="uk.ac.qub.mindyourmind.interfaces.OnMenuItemClicked" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/interfaces/OnMenuItemClicked.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="80" width="171" x="5809" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="54" language="java" name="uk.ac.qub.mindyourmind.interfaces.OnPersonalDetailsFinished" 
+    project="MindyourMind" file="/MindyourMind/src/uk/ac/qub/mindyourmind/interfaces/OnPersonalDetailsFinished.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="211" x="14985" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="55" language="java" name="uk.ac.qub.mindyourmind.interfaces.OnSignUpClicked" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/interfaces/OnSignUpClicked.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="194" x="21271" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="56" language="java" name="uk.ac.qub.mindyourmind.interfaces.OnAuthenticated" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/interfaces/OnAuthenticated.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="249" x="14696" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="57" language="java" name="uk.ac.qub.mindyourmind.interfaces.OnLogin" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/interfaces/OnLogin.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="171" x="21505" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="58" language="java" name="uk.ac.qub.mindyourmind.interfaces.OnEditFinished" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/interfaces/OnEditFinished.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="171" x="16206" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="59" language="java" name="uk.ac.qub.mindyourmind.interfaces.OnGotoLogin" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/interfaces/OnGotoLogin.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="171" x="10346" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="60" language="java" name="uk.ac.qub.mindyourmind.interfaces.OnVideoFinished" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/interfaces/OnVideoFinished.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="171" x="5232" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="61" language="java" name="uk.ac.qub.mindyourmind.interfaces.OnEditEntry" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/interfaces/OnEditEntry.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="171" x="15995" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="62" language="java" name="uk.ac.qub.mindyourmind.interfaces.OnPlayVideo" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/interfaces/OnPlayVideo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="171" x="15777" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="63" language="java" name="uk.ac.qub.mindyourmind.interfaces.OnLoginClicked" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/interfaces/OnLoginClicked.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="225" x="21716" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="64" language="java" name="uk.ac.qub.mindyourmind.interfaces.OnIntroFinished" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/interfaces/OnIntroFinished.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="171" x="8671" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="65" language="java" name="uk.ac.qub.mindyourmind.interfaces.OnRatingsFinsihed" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/interfaces/OnRatingsFinsihed.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="80" width="171" x="13014" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="66" language="java" name="uk.ac.qub.mindyourmind.listeners.InternetConnectionChangedListner" 
+    project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/listeners/InternetConnectionChangedListner.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="116" width="267" x="4563" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="67" language="java" name="uk.ac.qub.mindyourmind.models.RatingsModel.RatingTypes" 
+    project="MindyourMind" file="/MindyourMind/src/uk/ac/qub/mindyourmind/models/RatingsModel.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="116" width="187" x="12655" y="6883"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="68" language="java" name="uk.ac.qub.mindyourmind.models.DiaryEntryModel" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/models/DiaryEntryModel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="278" width="318" x="1155" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="69" language="java" name="uk.ac.qub.mindyourmind.models.EducationContentModel" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/models/EducationContentModel.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="188" width="233" x="2194" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="70" language="java" name="uk.ac.qub.mindyourmind.models.UserEducationModel" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/models/UserEducationModel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="188" width="216" x="10090" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="71" language="java" name="uk.ac.qub.mindyourmind.models.DiaryMedia" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/models/DiaryMedia.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="188" width="159" x="1155" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="72" language="java" name="uk.ac.qub.mindyourmind.models.MenuComponentModel" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/models/MenuComponentModel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="260" width="246" x="9804" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="73" language="java" name="uk.ac.qub.mindyourmind.models.LoginAuditModel" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/models/LoginAuditModel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="242" width="286" x="624" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="74" language="java" name="uk.ac.qub.mindyourmind.models.RatingsModel" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/models/RatingsModel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="260" width="249" x="12655" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="75" language="java" name="uk.ac.qub.mindyourmind.models.UserModel" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/models/UserModel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="602" width="352" x="9412" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="76" language="java" name="uk.ac.qub.mindyourmind.providers.MindYourMindProvider" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/providers/MindYourMindProvider.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="638" width="273" x="6020" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="77" language="java" name="uk.ac.qub.mindyourmind.R.bool" project="MindyourMind" 
+    file="/MindyourMind/gen/uk/ac/qub/mindyourmind/R.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="206" width="350" x="17006" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="78" language="java" name="uk.ac.qub.mindyourmind.R.layout" project="MindyourMind" 
+    file="/MindyourMind/gen/uk/ac/qub/mindyourmind/R.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1232" width="277" x="17396" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="79" language="java" name="uk.ac.qub.mindyourmind.R.raw" project="MindyourMind" 
+    file="/MindyourMind/gen/uk/ac/qub/mindyourmind/R.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="242" width="131" x="17713" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="80" language="java" name="uk.ac.qub.mindyourmind.R.styleable" project="MindyourMind" 
+    file="/MindyourMind/gen/uk/ac/qub/mindyourmind/R.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="6020" width="379" x="19265" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="81" language="java" name="uk.ac.qub.mindyourmind.R.anim" project="MindyourMind" 
+    file="/MindyourMind/gen/uk/ac/qub/mindyourmind/R.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="260" width="235" x="17884" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="82" language="java" name="uk.ac.qub.mindyourmind.R.attr" project="MindyourMind" 
+    file="/MindyourMind/gen/uk/ac/qub/mindyourmind/R.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="4004" width="260" x="16417" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="83" language="java" name="uk.ac.qub.mindyourmind.R.color" project="MindyourMind" 
+    file="/MindyourMind/gen/uk/ac/qub/mindyourmind/R.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1502" width="336" x="18521" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="84" language="java" name="uk.ac.qub.mindyourmind.R.integer" project="MindyourMind" 
+    file="/MindyourMind/gen/uk/ac/qub/mindyourmind/R.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="170" width="249" x="16717" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="85" language="java" name="uk.ac.qub.mindyourmind.R.string" project="MindyourMind" 
+    file="/MindyourMind/gen/uk/ac/qub/mindyourmind/R.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1610" width="322" x="18159" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="86" language="java" name="uk.ac.qub.mindyourmind.R.dimen" project="MindyourMind" 
+    file="/MindyourMind/gen/uk/ac/qub/mindyourmind/R.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1700" width="316" x="19684" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="87" language="java" name="uk.ac.qub.mindyourmind.R.drawable" project="MindyourMind" 
+    file="/MindyourMind/gen/uk/ac/qub/mindyourmind/R.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1880" width="328" x="18897" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="88" language="java" name="uk.ac.qub.mindyourmind.R.xml" project="MindyourMind" 
+    file="/MindyourMind/gen/uk/ac/qub/mindyourmind/R.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="134" width="210" x="20040" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="89" language="java" name="uk.ac.qub.mindyourmind.R.style" project="MindyourMind" 
+    file="/MindyourMind/gen/uk/ac/qub/mindyourmind/R.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="5660" width="442" x="20290" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="90" language="java" name="uk.ac.qub.mindyourmind.R.id" project="MindyourMind" 
+    file="/MindyourMind/gen/uk/ac/qub/mindyourmind/R.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="2744" width="258" x="20772" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="91" language="java" name="uk.ac.qub.mindyourmind.R" project="MindyourMind" 
+    file="/MindyourMind/gen/uk/ac/qub/mindyourmind/R.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="123" x="18521" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="92" language="java" name="uk.ac.qub.mindyourmind.R.menu" project="MindyourMind" 
+    file="/MindyourMind/gen/uk/ac/qub/mindyourmind/R.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="152" width="161" x="21070" y="823"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <realization id="93">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="65"/>  
+  </realization>  
+  <nesting id="94">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="87"/>  
+  </nesting>  
+  <association id="95">    
+    <end type="SOURCE" refId="68" navigable="false" variant="ASSOCIATION">      
+      <attribute id="96" name="media"/>      
+      <multiplicity id="97" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="71" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="98">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="61"/>  
+  </realization>  
+  <nesting id="99">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="79"/>  
+  </nesting>  
+  <nesting id="100">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="85"/>  
+  </nesting>  
+  <realization id="101">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="57"/>  
+  </realization>  
+  <nesting id="102">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="25"/>  
+  </nesting>  
+  <realization id="103">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="63"/>  
+  </realization>  
+  <nesting id="104">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="78"/>  
+  </nesting>  
+  <nesting id="105">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="86"/>  
+  </nesting>  
+  <nesting id="106">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="88"/>  
+  </nesting>  
+  <association id="107">    
+    <end type="SOURCE" refId="51" navigable="false" variant="ASSOCIATION">      
+      <attribute id="108" name="sdf"/>      
+      <multiplicity id="109" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="110">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="89"/>  
+  </nesting>  
+  <association id="111">    
+    <end type="SOURCE" refId="43" navigable="false" variant="ASSOCIATION">      
+      <attribute id="112" name="adapter"/>      
+      <multiplicity id="113" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="114">    
+    <end type="SOURCE" refId="46" navigable="false" variant="ASSOCIATION">      
+      <attribute id="115" name="fragment"/>      
+      <multiplicity id="116" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="46" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="117">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="26"/>  
+  </nesting>  
+  <realization id="118">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="55"/>  
+  </realization>  
+  <association id="119">    
+    <end type="SOURCE" refId="74" navigable="false" variant="ASSOCIATION">      
+      <attribute id="120" name="ratingType"/>      
+      <multiplicity id="121" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="67" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="122">    
+    <end type="SOURCE" refId="52" navigable="false" variant="ASSOCIATION">      
+      <attribute id="123" name="instance"/>      
+      <multiplicity id="124" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="52" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="125">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="58"/>  
+  </realization>  
+  <nesting id="126">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="77"/>  
+  </nesting>  
+  <association id="127">    
+    <end type="SOURCE" refId="22" navigable="false" variant="ASSOCIATION">      
+      <attribute id="128" name="menu"/>      
+      <multiplicity id="129" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="130">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="80"/>  
+  </nesting>  
+  <nesting id="131">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="90"/>  
+  </nesting>  
+  <association id="132">    
+    <end type="SOURCE" refId="38" navigable="false" variant="ASSOCIATION">      
+      <attribute id="133" name="adapter"/>      
+      <multiplicity id="134" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="135">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="60"/>  
+  </realization>  
+  <realization id="136">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="56"/>  
+  </realization>  
+  <nesting id="137">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="15"/>  
+  </nesting>  
+  <association id="138">    
+    <end type="SOURCE" refId="44" navigable="false" variant="ASSOCIATION">      
+      <attribute id="139" name="sdf"/>      
+      <multiplicity id="140" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="141">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="62"/>  
+  </realization>  
+  <nesting id="142">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="83"/>  
+  </nesting>  
+  <nesting id="143">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="92"/>  
+  </nesting>  
+  <association id="144">    
+    <end type="SOURCE" refId="37" navigable="false" variant="ASSOCIATION">      
+      <attribute id="145" name="mReadyListener"/>      
+      <multiplicity id="146" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="147">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="47"/>  
+  </nesting>  
+  <realization id="148">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="54"/>  
+  </realization>  
+  <association id="149">    
+    <end type="SOURCE" refId="9" navigable="false" variant="ASSOCIATION">      
+      <attribute id="150" name="fspa"/>      
+      <multiplicity id="151" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="152">    
+    <end type="SOURCE" refId="17" navigable="false" variant="ASSOCIATION">      
+      <attribute id="153" name="menu"/>      
+      <multiplicity id="154" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="155">    
+    <end type="SOURCE" refId="35" navigable="false" variant="ASSOCIATION">      
+      <attribute id="156" name="rSatisfaction"/>      
+      <multiplicity id="157" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="74" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="158">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="84"/>  
+  </nesting>  
+  <nesting id="159">    
+    <end type="SOURCE" refId="74"/>    
+    <end type="TARGET" refId="67"/>  
+  </nesting>  
+  <nesting id="160">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="82"/>  
+  </nesting>  
+  <association id="161">    
+    <end type="SOURCE" refId="50" navigable="false" variant="ASSOCIATION">      
+      <attribute id="162" name="adapter"/>      
+      <multiplicity id="163" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="164">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="81"/>  
+  </nesting>  
+  <association id="165">    
+    <end type="SOURCE" refId="35" navigable="false" variant="ASSOCIATION">      
+      <attribute id="166" name="rHappiess"/>      
+      <multiplicity id="167" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="74" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="168">    
+    <end type="SOURCE" refId="32" navigable="false" variant="ASSOCIATION">      
+      <attribute id="169" name="instance"/>      
+      <multiplicity id="170" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

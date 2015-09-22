@@ -132,10 +132,8 @@ public class AuthenticateFragment extends Fragment {
 				});
 				sdf.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 				sdf.show();
-				
 			}
 		});
-		
 		return v;
 	}
 	
