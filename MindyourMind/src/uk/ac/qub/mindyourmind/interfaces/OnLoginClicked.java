@@ -4,5 +4,5 @@ import android.view.View;
 
 public interface OnLoginClicked {
 
-	public void openMainMenuFragment(View v);
+	public void openMainMenu(View v);
 }

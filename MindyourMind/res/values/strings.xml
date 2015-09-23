@@ -90,5 +90,8 @@
 	<string name="reset_password"><u>Reset Password</u></string>
 	<string name="forgot_your_password_q">Forgot your password?</string>
 	<string name="personal_details">Personal details</string>
+	<string name="email_address_not_recognised">Email address not recognised on this device</string>
+	<string name="incorrect_password">Incorrect Password</string>
+	<string name="no_regestered_users_on_this_device">No regestered users on this device</string>
     
 </resources>

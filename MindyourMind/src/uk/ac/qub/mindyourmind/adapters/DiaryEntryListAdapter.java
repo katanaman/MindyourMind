@@ -21,7 +21,7 @@ import uk.ac.qub.mindyourmind.interfaces.OnEditEntry;
 import uk.ac.qub.mindyourmind.providers.MindYourMindProvider;
 
 
-public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHolder> {
+public class DiaryEntryListAdapter extends RecyclerView.Adapter<DiaryEntryListAdapter.ViewHolder> {
 	
 	Cursor cursor;
 	int titleColumnIndex;

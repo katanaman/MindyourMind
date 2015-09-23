@@ -189,8 +189,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="uk.ac.qub.mindyourmind.adapters.TaskListAdapter" project="MindyourMind" 
-    file="/MindyourMind/src/uk/ac/qub/mindyourmind/adapters/TaskListAdapter.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="20" language="java" name="uk.ac.qub.mindyourmind.adapters.DiaryEntryListAdapter" project="MindyourMind" 
+    file="/MindyourMind/src/uk/ac/qub/mindyourmind/adapters/DiaryEntryListAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="278" width="293" x="13225" y="823"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -238,9 +239,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="25" language="java" name="uk.ac.qub.mindyourmind.adapters.TaskListAdapter.ViewHolder" 
-    project="MindyourMind" file="/MindyourMind/src/uk/ac/qub/mindyourmind/adapters/TaskListAdapter.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="25" language="java" name="uk.ac.qub.mindyourmind.adapters.DiaryEntryListAdapter.ViewHolder" 
+    project="MindyourMind" file="/MindyourMind/src/uk/ac/qub/mindyourmind/adapters/DiaryEntryListAdapter.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="152" width="167" x="13225" y="6883"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

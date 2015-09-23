@@ -38,7 +38,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 import uk.ac.qub.mindyourmind.R;
 import uk.ac.qub.mindyourmind.activities.DiaryEditActivity;
-import uk.ac.qub.mindyourmind.adapters.TaskListAdapter;
+import uk.ac.qub.mindyourmind.adapters.DiaryEntryListAdapter;
 import uk.ac.qub.mindyourmind.database.DiaryEntryTable;
 import uk.ac.qub.mindyourmind.providers.MindYourMindProvider;
 import android.app.LoaderManager;
@@ -47,12 +47,12 @@ import uk.ac.qub.mindyourmind.interfaces.OnEditFinished;
 
 public class DiaryEditFragment extends Fragment implements OnDateSetListener, OnTimeSetListener, LoaderManager.LoaderCallbacks<Cursor> {
 
-	public static final String DEFAULT_FRAGMNET_TAG = "taskEditFragment";
+	public static final String DEFAULT_FRAGMNET_TAG = "diaryEditFragment";
 	
 	private static final int MENU_SAVE = 1;
 	
 	static final String ENTRY_ID = "entry_id";
-	static final String TASK_DATE_AND_TIME = "taskDateAndTime";
+	static final String ENTRY_DATE_AND_TIME = "entryDateAndTime";
 	
 	//views
 	View rootView;
@@ -64,7 +64,7 @@ public class DiaryEditFragment extends Fragment implements OnDateSetListener, On
 	SharedPreferences prefs;
 	
 	long entryId;
-	Calendar taskDateAndTime;
+	Calendar entryDateAndTime;
 	
 	/**
 	 * factory method to return an instance of the fragment with each id.
@@ -92,11 +92,11 @@ public class DiaryEditFragment extends Fragment implements OnDateSetListener, On
 		
 		if (savedInstanceState != null){
 			entryId = savedInstanceState.getLong(ENTRY_ID);
-			taskDateAndTime = (Calendar) savedInstanceState.getSerializable(TASK_DATE_AND_TIME);
+			entryDateAndTime = (Calendar) savedInstanceState.getSerializable(ENTRY_DATE_AND_TIME);
 		}
 		
-		if (taskDateAndTime == null){
-			taskDateAndTime=Calendar.getInstance();
+		if (entryDateAndTime == null){
+			entryDateAndTime=Calendar.getInstance();
 		}
 	}
 	
@@ -105,7 +105,7 @@ public class DiaryEditFragment extends Fragment implements OnDateSetListener, On
 		super.onSaveInstanceState(outState);
 		
 		outState.putLong(ENTRY_ID, entryId);
-		outState.putSerializable(TASK_DATE_AND_TIME, taskDateAndTime);
+		outState.putSerializable(ENTRY_DATE_AND_TIME, entryDateAndTime);
 	}
 	
 	@Override
@@ -150,7 +150,7 @@ public class DiaryEditFragment extends Fragment implements OnDateSetListener, On
 				titleText.setText(defaultTitle);
 			}
 			if (defaultTime != null && defaultTime.length() > 0){
-				taskDateAndTime.add(Calendar.MINUTE, Integer.parseInt(defaultTime));
+				entryDateAndTime.add(Calendar.MINUTE, Integer.parseInt(defaultTime));
 			}
 			
 			updateDateAndTimeButtons();
@@ -203,7 +203,7 @@ public class DiaryEditFragment extends Fragment implements OnDateSetListener, On
 
         // Create the DatePickerDialogFragment and initialize it with
         // the appropriate values.
-        DatePickerDialogFragment newFragment = DatePickerDialogFragment.newInstance( taskDateAndTime );
+        DatePickerDialogFragment newFragment = DatePickerDialogFragment.newInstance( entryDateAndTime );
 
         // Show the dialog, and name it "datePicker".  By naming it,
         // Android can automatically manage its state for us if it
@@ -221,7 +221,7 @@ public class DiaryEditFragment extends Fragment implements OnDateSetListener, On
         // Create the TimePickerDialogFragment and initialize it with
         // the appropriate values.
         TimePickerDialogFragment fragment =
-                TimePickerDialogFragment.newInstance(taskDateAndTime);
+                TimePickerDialogFragment.newInstance(entryDateAndTime);
 
         // Show the dialog, and name it "timePicker".  By naming it,
         // Android can automatically manage its state for us if it
@@ -238,13 +238,13 @@ public class DiaryEditFragment extends Fragment implements OnDateSetListener, On
         DateFormat timeFormat =
                 DateFormat.getTimeInstance(DateFormat.SHORT);
         String timeForButton = timeFormat.format(
-                taskDateAndTime.getTime());
+        		entryDateAndTime.getTime());
         timeButton.setText(timeForButton);
 
         // Set the date button text
         DateFormat dateFormat = DateFormat.getDateInstance();
         String dateForButton = dateFormat.format(
-                taskDateAndTime.getTime());
+        		entryDateAndTime.getTime());
         dateButton.setText(dateForButton);
     }
     
@@ -254,9 +254,9 @@ public class DiaryEditFragment extends Fragment implements OnDateSetListener, On
      */
     @Override
     public void onDateSet(DatePicker view, int year, int monthOfYear,int dayOfMonth) {
-        taskDateAndTime.set(Calendar.YEAR, year);
-        taskDateAndTime.set(Calendar.MONTH, monthOfYear);
-        taskDateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+    	entryDateAndTime.set(Calendar.YEAR, year);
+    	entryDateAndTime.set(Calendar.MONTH, monthOfYear);
+    	entryDateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
         updateDateAndTimeButtons();
     }
 
@@ -266,8 +266,8 @@ public class DiaryEditFragment extends Fragment implements OnDateSetListener, On
      */
     @Override
     public void onTimeSet(TimePicker view, int hour, int minute) {
-        taskDateAndTime.set(Calendar.HOUR_OF_DAY, hour);
-        taskDateAndTime.set(Calendar.MINUTE, minute);
+    	entryDateAndTime.set(Calendar.HOUR_OF_DAY, hour);
+    	entryDateAndTime.set(Calendar.MINUTE, minute);
         updateDateAndTimeButtons();
     }
     
@@ -277,7 +277,7 @@ public class DiaryEditFragment extends Fragment implements OnDateSetListener, On
     	ContentValues values = new ContentValues();
     	values.put(DiaryEntryTable.COLUMN_DIARY_ENTRY_TITLE, title);
     	values.put(DiaryEntryTable.COLUMN_DIARY_ENTRY_CONTENT, notesText.getText().toString());
-    	values.put(DiaryEntryTable.COLUMN_DIARY_ENTRY_TIMESTAMP, taskDateAndTime.getTimeInMillis());
+    	values.put(DiaryEntryTable.COLUMN_DIARY_ENTRY_TIMESTAMP, entryDateAndTime.getTimeInMillis());
     	values.put(DiaryEntryTable.COLUMN_DIARY_ENTRY_USER_ID, prefs.getLong(getResources().getString(R.string.pref_current_user), 0));
     	
     	//taskId==0 when we create a new task, otherwise it has an id already
@@ -321,10 +321,10 @@ public class DiaryEditFragment extends Fragment implements OnDateSetListener, On
 		Long dateInMillis = cursor.getLong(cursor.getColumnIndexOrThrow(DiaryEntryTable.COLUMN_DIARY_ENTRY_TIMESTAMP));
 		
 		Date date = new Date (dateInMillis);
-		taskDateAndTime.setTime(date);
+		entryDateAndTime.setTime(date);
 		
 		// setting image thumbnail
-	 	Picasso.with(getActivity()).load(TaskListAdapter.getImageUrlForTask(entryId)).into(imageView, new Callback() {
+	 	Picasso.with(getActivity()).load(DiaryEntryListAdapter.getImageUrlForTask(entryId)).into(imageView, new Callback() {
 			
 			@Override
 			public void onSuccess() {

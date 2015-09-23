@@ -1,17 +1,11 @@
 package uk.ac.qub.mindyourmind.fragments;
 
 import java.text.DateFormat;
-import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
-import java.util.UUID;
-
 import android.app.Fragment;
-import android.content.ContentUris;
-import android.content.ContentValues;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,13 +16,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.EditText;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 import uk.ac.qub.mindyourmind.R;
-import uk.ac.qub.mindyourmind.database.UserTable;
-import uk.ac.qub.mindyourmind.database.UserUniversityTable;
 import uk.ac.qub.mindyourmind.interfaces.OnAuthenticated;
-import uk.ac.qub.mindyourmind.providers.MindYourMindProvider;
 
 public class AuthenticateFragment extends Fragment {
 	

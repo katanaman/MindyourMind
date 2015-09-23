@@ -2,3 +2,5 @@
 /.gitignore
 /android/
 /com/
+/ActionBarActivity.class
+/AppCompatActivity.class

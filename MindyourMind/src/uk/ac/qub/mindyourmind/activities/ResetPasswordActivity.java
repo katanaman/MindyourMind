@@ -3,7 +3,6 @@ import java.util.Random;
 
 import com.kristijandraca.backgroundmaillibrary.BackgroundMail;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 

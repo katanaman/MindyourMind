@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import uk.ac.qub.mindyourmind.fragments.SlidersFragment;
 import uk.ac.qub.mindyourmind.fragments.DiaryEditFragment;
 import uk.ac.qub.mindyourmind.interfaces.OnEditFinished;
 import uk.ac.qub.mindyourmind.R;

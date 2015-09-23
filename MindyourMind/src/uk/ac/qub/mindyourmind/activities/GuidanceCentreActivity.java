@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import uk.ac.qub.mindyourmind.R;

@@ -12,13 +12,16 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 import uk.ac.qub.mindyourmind.R;
 import uk.ac.qub.mindyourmind.listeners.InternetConnectionChangedListner;
 
+/**
+ * Activity showing the intro video for the application
+ * @author Adrian
+ */
 public class SplashVideoActivity extends Activity {
 
 	public static final String TAG = "videoPlayerFragment";
@@ -35,15 +38,18 @@ public class SplashVideoActivity extends Activity {
     	super.onCreate(savedInstanceState);
     	Log.d(TAG, "onCreate called");
     	
+    	//starting my internet connectivity listner
     	InternetConnectionChangedListner.checkConnection(getApplicationContext());
     	
+    	//getting the applications shared preferences to check if the user has 
+    	// set a preference not to play the into video
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		playIntro = prefs.getBoolean(getResources().getString(R.string.pref_play_intro_key), true);
     	
 		if(!playIntro){
 			goToLogin();
 		}
-		
+		//setting the orientation to landscape for the video
     	setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     	setContentView(R.layout.activity_splash_video);
     	

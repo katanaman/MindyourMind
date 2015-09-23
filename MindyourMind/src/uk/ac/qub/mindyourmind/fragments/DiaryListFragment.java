@@ -19,7 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import uk.ac.qub.mindyourmind.activities.PreferencesActivity;
 import uk.ac.qub.mindyourmind.R;
-import uk.ac.qub.mindyourmind.adapters.TaskListAdapter;
+import uk.ac.qub.mindyourmind.adapters.DiaryEntryListAdapter;
 import uk.ac.qub.mindyourmind.database.DiaryEntryTable;
 import uk.ac.qub.mindyourmind.providers.MindYourMindProvider;
 import android.app.LoaderManager;
@@ -28,7 +28,7 @@ import uk.ac.qub.mindyourmind.interfaces.OnEditEntry;
 public class DiaryListFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
 
 	RecyclerView recyclerView;
-	TaskListAdapter adapter;
+	DiaryEntryListAdapter adapter;
 	SharedPreferences prefs;
 	long userID;
 	
@@ -39,7 +39,7 @@ public class DiaryListFragment extends Fragment implements LoaderManager.LoaderC
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		adapter = new TaskListAdapter();
+		adapter = new DiaryEntryListAdapter();
 		prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 		userID = prefs.getLong(getResources().getString(R.string.pref_current_user), 0);
 		if(userID!=0){
@@ -90,7 +90,6 @@ public class DiaryListFragment extends Fragment implements LoaderManager.LoaderC
 		String selection = DiaryEntryTable.COLUMN_DIARY_ENTRY_USER_ID + "=?";
 	    String[] selectionArgs = {String.valueOf(userID)};
 		return new CursorLoader(getActivity(), MindYourMindProvider.DIARY_URI, null, selection, selectionArgs, null);
-		//return new CursorLoader(getActivity(), MindYourMindProvider.DIARY_URI, null, null, null, null);
 	}
 	
 	@Override

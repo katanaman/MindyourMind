@@ -1,6 +1,5 @@
 package uk.ac.qub.mindyourmind.activities;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,15 +10,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import uk.ac.qub.mindyourmind.adapters.GridViewImageAdapter;
-import uk.ac.qub.mindyourmind.fragments.PersonalDetailsFragment;
-import uk.ac.qub.mindyourmind.interfaces.OnGotoLogin;
-import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageButton;
 import android.widget.Toast;
 import uk.ac.qub.mindyourmind.R;
 

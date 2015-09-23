@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarActivity;
  * happy zone activity that will be further implemented into an imported photo gallery in future develoment cycles  
  * @author Adrian
  */
+@SuppressWarnings("deprecation")
 public class HappyZoneActivity extends ActionBarActivity{
 
 	/**

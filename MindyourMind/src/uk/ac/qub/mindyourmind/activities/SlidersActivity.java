@@ -1,7 +1,6 @@
 package uk.ac.qub.mindyourmind.activities;
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -9,6 +8,7 @@ import uk.ac.qub.mindyourmind.R;
 import uk.ac.qub.mindyourmind.fragments.SlidersFragment;
 import uk.ac.qub.mindyourmind.interfaces.OnRatingsFinsihed;
 
+@SuppressWarnings("deprecation")
 public class SlidersActivity extends ActionBarActivity implements OnRatingsFinsihed {
 
 	public static final String EXTRA_TASKID ="taskId";

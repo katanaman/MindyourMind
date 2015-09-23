@@ -31,7 +31,7 @@
 	       android:layout_below="@id/centerDiv"
 	       android:layout_centerHorizontal="true"
 	       android:ems="10"
-	       android:inputType="text">
+	       android:inputType="textEmailAddress">
 	       <requestFocus />
 		</EditText>
 		

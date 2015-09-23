@@ -296,10 +296,10 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
 		String gender = ETGender.getText().toString();
 		long dob = dateOfBirth.getTimeInMillis();
 
-    	if(university.length()!=0){
-        	setCurrentUser();
+    	if(university.length()!=0){ //check to see if a new user is being added
+        	setCurrentUser(); //if so set them as current user
         		
-    		ContentValues UserValues = new ContentValues();
+    		ContentValues UserValues = new ContentValues(); //add their user details to a content values object
     		UserValues.put(UserTable.COLUMN_USER_ID, userId);
     		UserValues.put(UserTable.COLUMN_USER_NAME, name);
     		UserValues.put(UserTable.COLUMN_USER_PASSWORD, password);
@@ -308,12 +308,14 @@ public class PersonalDetailsFragment extends Fragment implements OnDateSetListen
     		UserValues.put(UserTable.COLUMN_USER_EMAIL, universityEmail);
     		UserValues.put(UserTable.COLUMN_USER_DATE_OF_BIRTH, dob);
 
-    		ContentValues UniversityValues = new ContentValues();
+    		ContentValues UniversityValues = new ContentValues(); //add their university details to a content values object
     		UniversityValues.put(UserUniversityTable.COLUMN_USER_UNIVERSITY_NAME, university);
     		UniversityValues.put(UserUniversityTable.COLUMN_USER_UNIVERSITY_FACULTY, degreePathway);
     		UniversityValues.put(UserUniversityTable.COLUMN_USER_UNIVERSITY_YEAR_OF_STUDY, yearOfStudy);
     		UniversityValues.put(UserUniversityTable.COLUMN_USER_UNIVERSITY_USER_ID, userId);
 
+    		//add values to database using URIs to specify the table in the SQLite db
+    		//and a content resolver to add the content values given the URI via the content provider  
     		Uri UserUri = getActivity().getContentResolver().insert(MindYourMindProvider.USER_URI, UserValues);
     		Uri UniUri = getActivity().getContentResolver().insert(MindYourMindProvider.EDUCATION_URI, UniversityValues);
 

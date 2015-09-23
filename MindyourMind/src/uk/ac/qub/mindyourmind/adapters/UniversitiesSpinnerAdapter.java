@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
-import uk.ac.qub.mindyourmind.R;
 
 public class UniversitiesSpinnerAdapter extends BaseAdapter implements SpinnerAdapter {
 

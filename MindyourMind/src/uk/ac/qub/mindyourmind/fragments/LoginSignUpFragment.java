@@ -1,7 +1,6 @@
 package uk.ac.qub.mindyourmind.fragments;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -100,11 +99,11 @@ public class LoginSignUpFragment extends Fragment implements LoaderManager.Loade
 			public void onClick(View v) {
 				
 				if (debug){
-					((OnLoginClicked) getActivity()).openMainMenuFragment(view);
+					((OnLoginClicked) getActivity()).openMainMenu(view);
 				}
 				if(checkDetails()){
 					setCurrentUser();
-					((OnLoginClicked) getActivity()).openMainMenuFragment(view);
+					((OnLoginClicked) getActivity()).openMainMenu(view);
 				}
 				loadingSpinner.setVisibility(View.GONE);
 			}
@@ -125,7 +124,7 @@ public class LoginSignUpFragment extends Fragment implements LoaderManager.Loade
 			public void onClick(View v) {
 				String enteredEmail = email.getText().toString();
 				if(emailToPassword.size()<1){
-					showMessage("No regestered users on this device");
+					showMessage(getActivity().getString(R.string.no_regestered_users_on_this_device));
 				} else {
 					if(emailToPassword.containsKey(enteredEmail)){
 						showPasswordReset();
@@ -140,25 +139,23 @@ public class LoginSignUpFragment extends Fragment implements LoaderManager.Loade
 	}
 	
 	public boolean checkDetails(){
-		boolean isCorrect = false;
-		loadingSpinner.setVisibility(View.VISIBLE);
-		
-		String enteredEmail = email.getText().toString();
-		
-		if(emailToPassword.size()<1){
-			showMessage("No regestered users on this device");
-		} else {
-			if(emailToPassword.containsKey(enteredEmail)){
+		boolean isCorrect = false; //instantiate a boolean
+		loadingSpinner.setVisibility(View.VISIBLE); //set spinner to show loading to visible
+		String enteredEmail = email.getText().toString();// get entered email address
+		if(emailToPassword.size()<1){ //check for users on device
+			showMessage(getActivity().getString(R.string.no_regestered_users_on_this_device));
+		} else { 
+			if(emailToPassword.containsKey(enteredEmail)){ //check if entered email matches a user
 				if (emailToPassword.get(enteredEmail).equals(password.getText().toString())){
-					isCorrect= true;
-				} else {
-					showMessage("Incorrect Password");
+					isCorrect= true; // if password also matches set boolean to true
+				} else {//show validation message on incorrect password
+					showMessage(getActivity().getString(R.string.incorrect_password));
 				}
-			} else {
-				showMessage("Email address not recognised on this device");
+			} else { //show validation message on incorrect username
+				showMessage(getActivity().getString(R.string.email_address_not_recognised));
 			}
 		}
-		return isCorrect;
+		return isCorrect; //return boolean if check details was successful
 	}
 	
 	private void showMessage(String message){
@@ -231,26 +228,35 @@ public class LoginSignUpFragment extends Fragment implements LoaderManager.Loade
 		throw new IllegalArgumentException("email address, has no ID");
 	}
 	
+	/**
+	 * method creating a loader which uses a provider URI's to query the SQLite database
+	 */
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+		//create a new cursor loader passing in the context and a URI to get user details 
 		return new CursorLoader(getActivity(),MindYourMindProvider.USER_URI,null,null,null,null);
 	}
 
+	/**
+	 * method callback from the loader with access to the UI thread
+	 * creating an hashmap of username password combinations to check against
+	 */
 	@Override
 	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
 		Log.d(DEFAULT_FRAGMNET_TAG, "Loader finshed");
-		userDetails = cursor;
-
-		if(cursor!=null){
-			emailToPassword.clear();
+		userDetails = cursor; //keeping a reference of the last cursor object
+		if(cursor!=null){ // check to see if cursor is not null
+			emailToPassword.clear(); //clear the hashmap
 			cursor.moveToFirst();
-			while (!cursor.isAfterLast()) {	
+			while (!cursor.isAfterLast()) {	//iterate through the cursor loading the values
 				emailToPassword.put(cursor.getString(cursor.getColumnIndexOrThrow(UserTable.COLUMN_USER_EMAIL)), cursor.getString(cursor.getColumnIndexOrThrow(UserTable.COLUMN_USER_PASSWORD)));
 				cursor.moveToNext();
 			}
 		}
 	} 
-
+	/**
+	 * method called when the loader is reset 
+	 */
 	@Override
 	public void onLoaderReset(Loader<Cursor> loader) {
 		// nothing to reset

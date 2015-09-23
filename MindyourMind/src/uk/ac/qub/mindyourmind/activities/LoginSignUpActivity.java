@@ -9,15 +9,12 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewDebug.FlagToString;
-import android.view.Window;
 import uk.ac.qub.mindyourmind.fragments.LoginSignUpFragment;
 import uk.ac.qub.mindyourmind.fragments.QuickSignInFragment;
 import uk.ac.qub.mindyourmind.interfaces.OnLogin;
 import uk.ac.qub.mindyourmind.interfaces.OnLoginClicked;
 import uk.ac.qub.mindyourmind.interfaces.OnSignUpClicked;
 import uk.ac.qub.mindyourmind.R;
-import uk.ac.qub.mindyourmind.database.UserTable;
 /**
  * base activity that deals with current logged in user, password reset, loggin fragment, and quick login fragment 
  * @author Adrian
@@ -44,37 +41,42 @@ public class LoginSignUpActivity extends ActionBarActivity implements OnLoginCli
 		//get shared preferences manager
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		Fragment fragment;
-		
 		//get last logged in userID from shared preferences
 		long userID = prefs.getLong(getResources().getString(R.string.pref_current_user), 0L);
 		Log.d(TAG, "returned user id: " + userID);
 		
-		
-		//check if it's not null
-		if(userID != 0){
+		//check if userID there is a valid userID
+		if(userID != 0){ //if there is a previous user display the quick sign-in fragment
 			fragment = QuickSignInFragment.newInstance(userID);
-		} else {
+		} else { //if not open the login signup fragment
 			fragment = LoginSignUpFragment.newInstance();
 		}
-		
 		getFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
 	}
 
+	/**
+	 * method to finish this activity and begin the mainmenu activity as a new task
+	 */
 	@Override
-	public void openMainMenuFragment(View v) {
-		//startActivity(new Intent(this, MainMenuActivity.class));
-		Intent intent = new Intent(this, MainMenuActivity.class);
-		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK); 
+	public void openMainMenu(View v) {
+		Intent intent = new Intent(this, MainMenuActivity.class); //create the intent
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);//add flags to set the main menu activity as a new task 
 		startActivity(intent);
 		finish(); 
 	}
 
+	/**
+	 * method to finish this activity and begin sign up activity
+	 */
 	@Override
 	public void openSignUpActivity(View v) {
-		//when the user wants to start a create an account open the sign up activity
+		//when the user wants to create an account open the sign up activity
 		startActivity(new Intent(this, SignUpActivity.class));
 	}
 
+	/**
+	 * method to restart this activity when user leaves the quick sign-in
+	 */
 	@Override
 	public void goToLogin() {
 		Intent intent = new Intent(this, LoginSignUpActivity.class);

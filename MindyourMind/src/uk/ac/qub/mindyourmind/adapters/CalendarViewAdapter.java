@@ -3,15 +3,11 @@ package uk.ac.qub.mindyourmind.adapters;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
-
 import android.content.Context;
-import android.database.Cursor;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,14 +20,6 @@ public class CalendarViewAdapter extends BaseAdapter {
 	private Context mContext;
 
 	public static final String TAG = "calendarViewAdapter";
-	
-	/*
-	Cursor cursor;
-	int titleColumnIndex;
-	int notesColumnIndex;
-	int idColumnIndex;
-	int dateTimeColumnIndex;*/
-	
 	 
 	 private java.util.Calendar month;
 	 
@@ -100,13 +88,6 @@ public class CalendarViewAdapter extends BaseAdapter {
 	  }
 	  this.items = items;
 	 }
-	 
-	 
-	 /*
-	public int getItemCount() {
-		//cursor!=null? cursor.getCount() : 0;
-		return  
-	}*/
 
 	 public int getCount() {
 	  return dayString.size();

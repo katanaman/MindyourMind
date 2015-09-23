@@ -8,16 +8,12 @@ import android.content.Loader;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
-import android.graphics.DashPathEffect;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.FloatMath;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import uk.ac.qub.mindyourmind.R;
 import uk.ac.qub.mindyourmind.database.DiaryEntryTable;
@@ -26,7 +22,6 @@ import uk.ac.qub.mindyourmind.providers.MindYourMindProvider;
 
 import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.xy.XYSeries;
-import com.androidplot.util.PixelUtils;
 import com.androidplot.xy.*;
 
 import java.text.DecimalFormat;
@@ -38,8 +33,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Timer;
-import java.util.TimerTask;
  
 /**
  * A straightforward example of using AndroidPlot to plot some data.
@@ -106,25 +99,9 @@ public class GraphViewFragment extends Fragment implements LoaderManager.LoaderC
         plot.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 25);
         plot.setRangeBoundaries(0, BoundaryMode.FIXED, 100, BoundaryMode.FIXED);
         
-        
-        /* reduce the number of range labels
-        plot.getGraphWidget().setDomainLabelOrientation(-45);
-        // thin out domain tick labels so they dont overlap each other:
-        plot.setDomainStepMode(XYStepMode.SUBDIVIDE);
-        plot.setDomainStepValue(2);
-
-        plot.setRangeStepMode(XYStepMode.INCREMENT_BY_VAL);
-        plot.setRangeStepValue(50);
- 
-        plot.setRangeUpperBoundary(100, BoundaryMode.FIXED);
-        plot.setRangeValueFormat(new DecimalFormat("###"));
-        //plot.setRangeBoundaries(0, 100, BoundaryMode.FIXED);
- 
-        // create a dash effect for domain and range grid lines:
-        DashPathEffect dashFx = new DashPathEffect(new float[] {PixelUtils.dpToPix(3), PixelUtils.dpToPix(3)}, 0);
-        plot.getGraphWidget().getDomainGridLinePaint().setPathEffect(dashFx);
-        plot.getGraphWidget().getRangeGridLinePaint().setPathEffect(dashFx);
-        
+        // on touch listener allowing user to scroll and zoom across the graph view
+        // known bug present on some devices causes it to crash so I have commented this out
+        /*
         view.setOnTouchListener(new View.OnTouchListener() {
 			
         	@Override
@@ -268,41 +245,37 @@ public class GraphViewFragment extends Fragment implements LoaderManager.LoaderC
 		return new CursorLoader(getActivity(), MindYourMindProvider.RATINGS_URI, null, selection, selectionArgs, null);
 	}
 	
+	/**
+	 * on loadFinished update data points  and  redraw the plot
+	 */
 	@Override
 	public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-		
+		// get a reference to the necessary column indexes
 		int valueColumnIndex = data.getColumnIndex(RatingsTable.COLUMN_RATINGS_VALUE);
 		int timeStampColumnIndex = data.getColumnIndex(RatingsTable.COLUMN_RATINGS_TIMESTAMP);
 		
-		// update data points  and  redraw the plot
-		HashSet<String> sliderTypes = new HashSet<String>();
-		HashMap<String, ArrayList<Integer>> values = new HashMap<String, ArrayList<Integer>>();
-		HashMap<String, ArrayList<Long>> timeStamp = new HashMap<String, ArrayList<Long>>();
-		
+		HashSet<String> sliderTypes = new HashSet<String>();//a hash set is used to hold unique values only
+		HashMap<String, ArrayList<Integer>> values = new HashMap<String, ArrayList<Integer>>();//a hashmap holds appropriate 
+																								//arraylists for ratings values
+		HashMap<String, ArrayList<Long>> timeStamp = new HashMap<String, ArrayList<Long>>();//a hashmap holds appropriate 
+																								//arraylists for timestamp values
 		Log.d(DEFAULT_FRAGMENT_TAG, "data count :"+data.getCount());
-		if(data!=null){
+		if(data!=null){//if the user has created ratings 
 			data.moveToFirst();
-			while (!data.isAfterLast()) {
-				String type = data.getString(data.getColumnIndex(RatingsTable.COLUMN_RATINGS_TYPE));
+			while (!data.isAfterLast()) {//iterate through the cursor
+				String type = data.getString(data.getColumnIndex(RatingsTable.COLUMN_RATINGS_TYPE)); //check the type of each rating
 				Log.d(DEFAULT_FRAGMENT_TAG, "type :"+type);
-				if(sliderTypes.contains(type)){
-					values.get(type).add(data.getInt(valueColumnIndex));
-					timeStamp.get(type).add(data.getLong(timeStampColumnIndex));
-					Log.d(DEFAULT_FRAGMENT_TAG, "type :"+ type);
-					Log.d(DEFAULT_FRAGMENT_TAG, "value :"+data.getInt(valueColumnIndex));
-					Log.d(DEFAULT_FRAGMENT_TAG, "timeStamp :"+data.getLong(timeStampColumnIndex));
+				if(sliderTypes.contains(type)){ //check if it is already in the hashset
+					values.get(type).add(data.getInt(valueColumnIndex));//if so add value to the appropriate arraylist 
+					timeStamp.get(type).add(data.getLong(timeStampColumnIndex));//if so add timestamp to the appropriate arraylist
 				} else {
-					sliderTypes.add(type);
-					values.put(type, new ArrayList<Integer>());
-					timeStamp.put(type, new ArrayList<Long>());
-					values.get(type).add(data.getInt(valueColumnIndex));
-					timeStamp.get(type).add(data.getLong(timeStampColumnIndex));
-					
-					Log.d(DEFAULT_FRAGMENT_TAG, "type :"+ type);
-					Log.d(DEFAULT_FRAGMENT_TAG, "value :"+data.getInt(valueColumnIndex));
-					Log.d(DEFAULT_FRAGMENT_TAG, "timeStamp :"+data.getLong(timeStampColumnIndex));
+					sliderTypes.add(type);// if it is not in the hashset
+					values.put(type, new ArrayList<Integer>()); //add new values arraylist with the key of the new type
+					timeStamp.put(type, new ArrayList<Long>());//add new timestamp arraylist with the key of the new type
+					values.get(type).add(data.getInt(valueColumnIndex));// add the values to the new lists
+					timeStamp.get(type).add(data.getLong(timeStampColumnIndex));//add the values to the new lists
 				}
-			    data.moveToNext();
+			    data.moveToNext();//move to the next row of the cursor
 			}
 		}
 		Log.d(DEFAULT_FRAGMENT_TAG, "number of sliders :"+sliderTypes.size());

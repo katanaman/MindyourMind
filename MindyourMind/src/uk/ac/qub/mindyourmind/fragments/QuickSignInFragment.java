@@ -108,7 +108,7 @@ public class QuickSignInFragment extends Fragment implements LoaderManager.Loade
 			@Override
 			public void onClick(View v) {
 				if (checkCode()){
-					((OnLoginClicked) getActivity()).openMainMenuFragment(view);
+					((OnLoginClicked) getActivity()).openMainMenu(view);
 				}
 			}
 		});
